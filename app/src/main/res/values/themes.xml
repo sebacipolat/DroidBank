@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.DroidBank" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:statusBarColor">@color/purple_700</item>
+    </style>
+    <!-- Splash Screen Theme. -->
+    <style name="Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/white</item>
+        <item name="android:windowBackground">@drawable/splash</item>
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher_monochrome</item>
+        <item name="windowSplashScreenAnimationDuration">300</item>
+        <item name="postSplashScreenTheme">@style/App</item>
+    </style>
+    <style name="App" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:statusBarColor">@color/transparent</item>
+    </style>
+</resources>
