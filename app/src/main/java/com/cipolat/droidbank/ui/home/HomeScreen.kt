@@ -11,6 +11,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.cipolat.droidbank.R
+import com.cipolat.droidbank.ui.balance.BalanceView
 import com.cipolat.droidbank.ui.home.welcome.WelcomeView
 import com.cipolat.droidbank.ui.transactions.Transactions
 import com.cipolat.droidbank.ui.widgets.menu.Menu
@@ -20,14 +21,16 @@ import com.cipolat.droidbank.ui.widgets.menu.Menu
 fun HomeScreen(modifier: Modifier = Modifier) {
     Column(Modifier.padding(start = 20.dp, top = 20.dp, end = 20.dp)) {
         WelcomeView()
-        Image(
+        BalanceView(modifier = Modifier
+            .padding(top = 25.dp))
+       /* Image(
             modifier = Modifier
                 .padding(top = 30.dp)
                 .fillMaxWidth(),
             contentScale = ContentScale.Crop,
             painter = painterResource(id = R.drawable.card),
             contentDescription = "Card"
-        )
+        )*/
         Menu(
             Modifier
                 .padding(top = 30.dp)

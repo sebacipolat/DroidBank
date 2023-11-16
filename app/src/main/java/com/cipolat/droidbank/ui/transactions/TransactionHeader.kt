@@ -14,7 +14,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.cipolat.droidbank.ui.theme.Blue
+import com.cipolat.droidbank.ui.theme.BlueDark
 import com.cipolat.droidbank.ui.theme.poppins
 
 @Composable
@@ -39,7 +39,10 @@ fun TransactionHeader(
         )
         Text(
             text = "See All", style = TextStyle(
-                fontSize = 14.sp, color = Blue, fontWeight = FontWeight.Medium, fontFamily = poppins
+                fontSize = 14.sp,
+                color = BlueDark,
+                fontWeight = FontWeight.Medium,
+                fontFamily = poppins
             ), textAlign = TextAlign.Start
         )
     }
