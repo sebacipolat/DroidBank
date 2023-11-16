@@ -15,6 +15,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.cipolat.droidbank.ui.cards.CardScreen
 import com.cipolat.droidbank.ui.home.HomeScreen
 import com.cipolat.droidbank.ui.theme.DroidBankTheme
 
@@ -33,7 +34,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    HomeScreen()
+                    CardScreen()
                 }
             }
         }
@@ -46,6 +47,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun DefaultPreview() {
     DroidBankTheme {
-        HomeScreen()
+       // HomeScreen()
+        CardScreen()
     }
 }
