@@ -18,6 +18,7 @@ import androidx.navigation.compose.rememberNavController
 import com.cipolat.droidbank.ui.cards.CardScreen
 import com.cipolat.droidbank.ui.home.HomeScreen
 import com.cipolat.droidbank.ui.theme.DroidBankTheme
+import com.cipolat.droidbank.ui.transactions.TransactionsScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,7 +35,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    CardScreen()
+                    TransactionsScreen()
                 }
             }
         }

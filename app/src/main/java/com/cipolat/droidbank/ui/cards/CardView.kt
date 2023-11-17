@@ -20,6 +20,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.cipolat.droidbank.R
 import com.cipolat.droidbank.ui.theme.Blue
+import com.cipolat.droidbank.ui.theme.GrayLight
 import com.cipolat.droidbank.ui.theme.White
 import com.cipolat.droidbank.ui.theme.poppins
 
@@ -73,7 +74,7 @@ fun CardView(modifier: Modifier = Modifier) {
             text = "Sebastian Cipolat",
             style = TextStyle(
                 textAlign = TextAlign.Start,
-                fontSize = 15.sp,
+                fontSize = 13.sp,
                 color = White,
                 fontWeight = FontWeight.Medium,
                 fontFamily = poppins
@@ -82,9 +83,71 @@ fun CardView(modifier: Modifier = Modifier) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(start = 15.dp, top = 15.dp, end = 15.dp),
+                .padding(start = 15.dp, top = 8.dp, end = 15.dp),
         ) {
-            
+            Column() {
+                Text(
+                    modifier = Modifier
+                        .padding(top = 5.dp),
+                    text = "Expiry Date",
+                    style = TextStyle(
+                        textAlign = TextAlign.Start,
+                        fontSize = 10.sp,
+                        color = GrayLight,
+                        fontWeight = FontWeight.Medium,
+                        fontFamily = poppins
+                    )
+                )
+                Text(
+                    modifier = Modifier
+                        .padding(top = 2.dp),
+                    text = "24/2000",
+                    style = TextStyle(
+                        textAlign = TextAlign.Start,
+                        fontSize = 12.sp,
+                        color = White,
+                        fontWeight = FontWeight.Medium,
+                        fontFamily = poppins
+                    )
+                )
+            }
+
+            Column( modifier = Modifier
+                .padding(start = 15.dp)) {
+                Text(
+                    modifier = Modifier
+                        .padding(top = 5.dp),
+                    text = "CVV",
+                    style = TextStyle(
+                        textAlign = TextAlign.Start,
+                        fontSize = 10.sp,
+                        color = GrayLight,
+                        fontWeight = FontWeight.Medium,
+                        fontFamily = poppins
+                    )
+                )
+                Text(
+                    modifier = Modifier
+                        .padding(top = 2.dp),
+                    text = "xxxx",
+                    style = TextStyle(
+                        textAlign = TextAlign.Start,
+                        fontSize = 12.sp,
+                        color = White,
+                        fontWeight = FontWeight.Medium,
+                        fontFamily = poppins
+                    )
+                )
+            }
+            Divider(
+                modifier = Modifier
+                    .weight(1.5f), color = Color.Transparent
+            )
+            Image(
+                contentScale = ContentScale.Crop,
+                painter = painterResource(id = R.drawable.mastercard_icon),
+                contentDescription = "Card"
+            )
         }
     }
 }
