@@ -10,9 +10,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.cipolat.droidbank.usecase.bottomnav.BottomNav
-import com.cipolat.droidbank.usecase.cards.CardScreen
-import com.cipolat.droidbank.usecase.theme.DroidBankTheme
+import com.cipolat.droidbank.ui.bottomnav.BottomNav
+import com.cipolat.droidbank.ui.cards.CardScreen
+import com.cipolat.droidbank.ui.theme.DroidBankTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
