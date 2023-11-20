@@ -1,11 +1,9 @@
 package com.cipolat.droidbank.data.home.repositories.home
 
-import com.cipolat.droidbank.data.home.datasource.HomeRemoteDataSource
 import com.cipolat.droidbank.data.home.model.HomeResponse
+import com.cipolat.droidbank.network.Resource
+import retrofit2.Response
 
-class HomeRepository(private val remoteDataSource: HomeRemoteDataSource) {
-
-    suspend fun getHomeUserData(): Result<HomeResponse> {
-        return remoteDataSource.getHomeData()
-    }
+interface HomeRepository {
+    suspend fun getHomeUserData(): Response<HomeResponse>
 }

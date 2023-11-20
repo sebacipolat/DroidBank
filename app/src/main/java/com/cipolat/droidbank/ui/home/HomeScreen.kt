@@ -10,6 +10,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.cipolat.droidbank.data.home.datasource.HomeRemoteDataSource
 import com.cipolat.droidbank.data.home.repositories.home.HomeRepository
+import com.cipolat.droidbank.data.home.repositories.home.HomeRepositoryImpl
 import com.cipolat.droidbank.data.home.service.HomeService
 import com.cipolat.droidbank.domain.GetHomeUserUseCase
 import com.cipolat.droidbank.network.client.HttpClient
@@ -24,9 +25,8 @@ import com.cipolat.droidbank.ui.widgets.menu.Menu
 @Composable
 fun HomeScreen(modifier: Modifier = Modifier) {
     val service = HttpClient.getClient().create(HomeService::class.java)
-    val useCase = GetHomeUserUseCase(HomeRepository(HomeRemoteDataSource(service)))
+    val useCase = GetHomeUserUseCase(HomeRepositoryImpl(HomeRemoteDataSource(service)))
     val viewModel: HomeViewModel = viewModel(factory = HomeViewModelFactory(useCase))
-
     Column(Modifier.padding(start = 20.dp, top = 20.dp, end = 20.dp)) {
         WelcomeView()
         BalanceView(
@@ -44,4 +44,6 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                 .fillMaxWidth()
         )
     }
+    viewModel.getUserHome()
+
 }

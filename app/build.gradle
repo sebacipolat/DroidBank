@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -18,7 +19,7 @@ android {
         vectorDrawables {
             useSupportLibrary true
         }
-        resValue "string", "BASE_URL", "\"https://api.mockfly.dev/mocks/5ab2f84d-85c5-492c-bb64-e51bed785374/\""
+        buildConfigField "String", "BASE_URL", '"https://api.mockfly.dev/mocks/5ab2f84d-85c5-492c-bb64-e51bed785374/"'
     }
 
     buildTypes {
@@ -28,12 +29,10 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
-    kotlinOptions {
-        jvmTarget = '1.8'
-    }
+
     buildFeatures {
         compose true
     }
@@ -74,10 +73,13 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.2'
     //Retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation "com.squareup.retrofit2:converter-moshi:2.9.0"
     // Moshi
-    implementation("com.squareup.moshi:moshi:1.10.0")
+    implementation 'com.squareup.moshi:moshi:1.14.0'
+    implementation("com.squareup.moshi:moshi-kotlin:1.14.0")
+    implementation "com.squareup.moshi:moshi-adapters:1.14.0"
     implementation("com.squareup.retrofit2:converter-moshi:2.9.0")
+    kapt "com.squareup.moshi:moshi-kotlin-codegen:1.14.0"
     // Coil
     implementation("io.coil-kt:coil-compose:2.2.2")
     //Testing
