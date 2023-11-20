@@ -1,15 +1,33 @@
 package com.cipolat.droidbank.ui.home.viewmodel
 
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.cipolat.droidbank.domain.GetHomeUserUseCase
+import com.cipolat.droidbank.network.Resource
+import com.cipolat.droidbank.ui.home.model.HomeScreenState
 import kotlinx.coroutines.launch
 
 class HomeViewModel(private val useCase: GetHomeUserUseCase) : ViewModel() {
+    var state by mutableStateOf(HomeScreenState())
 
-    fun getUserHome(){
+    fun getUserHome() {
         viewModelScope.launch {
-            val response=useCase.invoke()
+            val response = useCase.invoke()
+            when (response.status) {
+                Resource.Status.SUCCESS -> {
+                    state.body.value = response.data!!
+                }
+
+                Resource.Status.ERROR -> {
+
+                }
+
+                Resource.Status.LOADING -> {
+                }
+            }
         }
     }
 }

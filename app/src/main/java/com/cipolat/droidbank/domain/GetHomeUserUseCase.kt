@@ -6,7 +6,7 @@ import com.cipolat.droidbank.network.Resource
 import retrofit2.Response
 
 class GetHomeUserUseCase(private val repository: HomeRepository) {
-    suspend operator fun invoke(): Response<HomeResponse> {
+    suspend operator fun invoke(): Resource<HomeResponse> {
         return repository.getHomeUserData()
     }
 }
