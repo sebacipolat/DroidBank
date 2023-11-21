@@ -19,13 +19,15 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.cipolat.droidbank.R
+import com.cipolat.droidbank.data.home.model.TransactionItem
 import com.cipolat.droidbank.ui.theme.Gray
 import com.cipolat.droidbank.ui.theme.GrayLight
 import com.cipolat.droidbank.ui.theme.poppins
 
 @Composable
-fun TransactionItem(
-    modifier: Modifier = Modifier
+fun TransactionView(
+    modifier: Modifier = Modifier,
+    item: TransactionItem
 ) {
     Row(
         modifier = modifier.fillMaxSize(),
@@ -49,7 +51,7 @@ fun TransactionItem(
             modifier = Modifier.padding(start = 15.dp)
         ) {
             Text(
-                text = "Apple Store",
+                text = item.value,
                 style = TextStyle(
                     fontSize = 16.sp,
                     color = MaterialTheme.colors.onPrimary,

@@ -13,17 +13,16 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.cipolat.droidbank.data.home.model.Balance
 import com.cipolat.droidbank.ui.theme.Blue
 import com.cipolat.droidbank.ui.theme.GrayLight
 import com.cipolat.droidbank.ui.theme.White
 import com.cipolat.droidbank.ui.theme.poppins
 
-@Preview
 @Composable
-fun BalanceView(modifier: Modifier = Modifier) {
+fun BalanceView(modifier: Modifier = Modifier, balance: Balance) {
     Column(
         modifier = modifier
             .fillMaxWidth()
@@ -48,7 +47,7 @@ fun BalanceView(modifier: Modifier = Modifier) {
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(top = 2.dp),
-            text = "$8,545.00",
+            text = balance.mount,
             style = TextStyle(
                 textAlign = TextAlign.Center,
                 fontSize = 32.sp,

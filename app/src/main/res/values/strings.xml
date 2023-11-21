@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">DroidBank</string>
+    <!--Errors -->
+    <string name="connection_error_title">Connection Error!</string>
+    <string name="connection_error_message">Check your internet access.</string>
+    <string name="server_error_title">Oops!</string>
+    <string name="server_error_message">Something went wrong.</string>
 </resources>

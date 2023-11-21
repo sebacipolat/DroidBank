@@ -1,8 +1,13 @@
 package com.cipolat.droidbank.ui.home.welcome
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -10,34 +15,35 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.cipolat.droidbank.R
+import coil.compose.AsyncImage
+import com.cipolat.droidbank.data.home.model.User
 import com.cipolat.droidbank.ui.theme.Gray
 import com.cipolat.droidbank.ui.theme.White
 import com.cipolat.droidbank.ui.theme.poppins
 
-@Preview
 @Composable
-fun WelcomeView(modifier: Modifier = Modifier) {
+fun WelcomeView(
+    user: User
+) {
     Row(
-        modifier
+        Modifier
             .fillMaxWidth()
             .height(50.dp)
     ) {
-        Image(
-            painter = painterResource(R.drawable.people),
-            contentDescription = "avatar",
-            contentScale = ContentScale.Crop,            // crop the image if it's not a square
+        AsyncImage(
             modifier = Modifier
                 .height(50.dp)
+                .width(50.dp)
                 .clip(CircleShape)                       // clip to the circle shape
-                .border(2.dp, White, CircleShape)   // add a border (optional)
+                .border(2.dp, White, CircleShape),
+            contentScale = ContentScale.Crop,
+            model = user.avatarUrl,
+            contentDescription = "avatar",
         )
         Column(
             Modifier.padding(start = 12.dp),
@@ -57,7 +63,7 @@ fun WelcomeView(modifier: Modifier = Modifier) {
             Text(
                 modifier = Modifier
                     .fillMaxWidth(),
-                text = "Tanya Myroniuk",
+                text = user.name,
                 style = TextStyle(
                     fontSize = 18.sp,
                     color = MaterialTheme.colors.onPrimary,

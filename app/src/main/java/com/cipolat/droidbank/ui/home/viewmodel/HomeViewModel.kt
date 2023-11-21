@@ -12,17 +12,20 @@ import kotlinx.coroutines.launch
 
 class HomeViewModel(private val useCase: GetHomeUserUseCase) : ViewModel() {
     var state by mutableStateOf(HomeScreenState())
+        private set
 
     fun getUserHome() {
         viewModelScope.launch {
             val response = useCase.invoke()
             when (response.status) {
                 Resource.Status.SUCCESS -> {
+                    state.isLoading.value = false
                     state.body.value = response.data!!
                 }
 
                 Resource.Status.ERROR -> {
-
+                    state.isLoading.value = false
+                    state.isError = response.errorType
                 }
 
                 Resource.Status.LOADING -> {

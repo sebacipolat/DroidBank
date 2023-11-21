@@ -1,14 +1,13 @@
 package com.cipolat.droidbank.network
 
-import com.squareup.moshi.JsonClass
 import okhttp3.ResponseBody
+
 data class Resource<out T>(
     val status: Status,
     val data: T?,
     val errorType: ErrorType?,
     val extra: Any? = null
 ) {
-
 
     enum class Status {
         SUCCESS,

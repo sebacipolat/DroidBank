@@ -1,4 +1,4 @@
-package com.cipolat.droidbank.data.home.repositories.home
+package com.cipolat.droidbank.data.home.repositories
 
 import com.cipolat.droidbank.data.home.datasource.HomeRemoteDataSource
 import com.cipolat.droidbank.data.home.model.HomeResponse

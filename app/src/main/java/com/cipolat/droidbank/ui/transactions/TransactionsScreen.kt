@@ -12,10 +12,10 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun TransactionsScreen(modifier: Modifier = Modifier) {
     Column(Modifier.padding(start = 20.dp, top = 20.dp, end = 20.dp)) {
-        Transactions(
+       /* Transactions(
             Modifier
                 .padding(top = 30.dp)
                 .fillMaxWidth()
-        )
+        )*/
     }
 }
