@@ -5,13 +5,13 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.cipolat.droidbank.domain.GetHomeUserUseCase
+import com.cipolat.droidbank.domain.home.usecase.GetHomeUserUseCase
 import com.cipolat.droidbank.network.Resource
-import com.cipolat.droidbank.ui.home.model.HomeScreenState
+import com.cipolat.droidbank.ui.cards.model.CardScreenState
 import kotlinx.coroutines.launch
 
 class HomeViewModel(private val useCase: GetHomeUserUseCase) : ViewModel() {
-    var state by mutableStateOf(HomeScreenState())
+    var state by mutableStateOf(CardScreenState())
         private set
 
     fun getUserHome() {

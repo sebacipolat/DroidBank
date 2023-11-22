@@ -8,17 +8,17 @@ class HomeRepositoryImpl(private val remoteDataSource: HomeRemoteDataSource) : H
 
     override suspend fun getHomeUserData(): Resource<HomeResponse> {
         val response = remoteDataSource.getHomeData()
-        when (response.status) {
+        return when (response.status) {
             Resource.Status.SUCCESS -> {
-               return response
+                response
             }
 
             Resource.Status.ERROR -> {
-                return response
+                response
             }
 
             else -> {
-                return response
+                response
             }
         }
     }

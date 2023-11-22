@@ -1,4 +1,4 @@
-package com.cipolat.droidbank.domain
+package com.cipolat.droidbank.domain.home.usecase
 
 import com.cipolat.droidbank.data.home.model.HomeResponse
 import com.cipolat.droidbank.data.home.repositories.HomeRepository

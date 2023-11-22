@@ -15,7 +15,7 @@ import com.cipolat.droidbank.data.home.datasource.HomeRemoteDataSource
 import com.cipolat.droidbank.data.home.model.HomeResponse
 import com.cipolat.droidbank.data.home.repositories.HomeRepositoryImpl
 import com.cipolat.droidbank.data.home.service.HomeService
-import com.cipolat.droidbank.domain.GetHomeUserUseCase
+import com.cipolat.droidbank.domain.home.usecase.GetHomeUserUseCase
 import com.cipolat.droidbank.network.client.HttpClient
 import com.cipolat.droidbank.ui.balance.BalanceView
 import com.cipolat.droidbank.ui.home.viewmodel.HomeViewModel

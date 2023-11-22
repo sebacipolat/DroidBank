@@ -2,7 +2,7 @@ package com.cipolat.droidbank.ui.home.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.cipolat.droidbank.domain.GetHomeUserUseCase
+import com.cipolat.droidbank.domain.home.usecase.GetHomeUserUseCase
 
 class HomeViewModelFactory(private val useCase: GetHomeUserUseCase) :
     ViewModelProvider.Factory {
