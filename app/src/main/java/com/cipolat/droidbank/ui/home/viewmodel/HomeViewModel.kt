@@ -17,6 +17,9 @@ class HomeViewModel(private val useCase: GetHomeUserUseCase) : ViewModel() {
     fun getUserHome() {
         viewModelScope.launch {
             val response = useCase.invoke()
+            state.isLoading.value = true
+            state.isError = null
+
             when (response.status) {
                 Resource.Status.SUCCESS -> {
                     state.isLoading.value = false

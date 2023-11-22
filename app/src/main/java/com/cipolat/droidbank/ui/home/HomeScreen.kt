@@ -22,6 +22,7 @@ import com.cipolat.droidbank.ui.home.viewmodel.HomeViewModel
 import com.cipolat.droidbank.ui.home.viewmodel.HomeViewModelFactory
 import com.cipolat.droidbank.ui.home.welcome.WelcomeView
 import com.cipolat.droidbank.ui.transactions.Transactions
+import com.cipolat.droidbank.ui.widgets.error.ErrorPlaceHolder
 import com.cipolat.droidbank.ui.widgets.loading.ProgressView
 import com.cipolat.droidbank.ui.widgets.menu.Menu
 
@@ -43,7 +44,12 @@ fun HomeScreen(modifier: Modifier = Modifier) {
             ProgressView()
         } else {
             if (viewModel.state.isError != null) {
-
+                ErrorPlaceHolder(
+                    Modifier.fillMaxWidth(),
+                    viewModel.state.isError!!
+                ) {
+                    viewModel.getUserHome()
+                }
             } else {
                 HomeBody(viewModel.state.body.value)
             }
