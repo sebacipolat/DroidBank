@@ -6,7 +6,7 @@ import com.cipolat.droidbank.network.Resource
 
 class CardsRepositoryImpl(private val remoteDataSource: CardsRemoteDataSource) : CardsRepository {
 
-    override suspend fun getUserCards(): Resource<ArrayList<Card>> {
+    override suspend fun getUserCards(): Resource<List<Card>> {
         val response = remoteDataSource.getCards()
         return when (response.status) {
             Resource.Status.SUCCESS -> {

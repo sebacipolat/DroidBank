@@ -6,7 +6,7 @@ import com.cipolat.droidbank.network.Resource
 import com.cipolat.droidbank.network.safeApiCall
 
 class CardsRemoteDataSource(private val cardsService: CardsService) {
-    suspend fun getCards(): Resource<ArrayList<Card>> {
+    suspend fun getCards(): Resource<List<Card>> {
         return safeApiCall { cardsService.getCards() }
     }
 }

@@ -6,5 +6,5 @@ import retrofit2.http.GET
 
 interface CardsService {
     @GET("cards")
-    suspend fun getCards(): Response<ArrayList<Card>>
+    suspend fun getCards(): Response<List<Card>>
 }

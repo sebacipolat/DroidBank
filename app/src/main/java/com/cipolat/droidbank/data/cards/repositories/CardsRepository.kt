@@ -5,5 +5,5 @@ import com.cipolat.droidbank.data.home.model.HomeResponse
 import com.cipolat.droidbank.network.Resource
 
 interface CardsRepository {
-    suspend fun getUserCards(): Resource<ArrayList<Card>>
+    suspend fun getUserCards(): Resource<List<Card>>
 }

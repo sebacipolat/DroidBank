@@ -2,7 +2,11 @@ package com.cipolat.droidbank.ui.cards
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Divider
 import androidx.compose.material.Text
@@ -15,18 +19,17 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.cipolat.droidbank.R
+import com.cipolat.droidbank.data.cards.model.Card
 import com.cipolat.droidbank.ui.theme.Blue
 import com.cipolat.droidbank.ui.theme.GrayLight
 import com.cipolat.droidbank.ui.theme.White
 import com.cipolat.droidbank.ui.theme.poppins
 
-@Preview
 @Composable
-fun CardView(modifier: Modifier = Modifier) {
+fun CardView(modifier: Modifier = Modifier, card: Card) {
     Column(
         modifier = modifier
             .fillMaxWidth()
@@ -58,7 +61,7 @@ fun CardView(modifier: Modifier = Modifier) {
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(top = 30.dp, start = 15.dp),
-            text = "4562 1122 4595 7852",
+            text = card.number,
             style = TextStyle(
                 textAlign = TextAlign.Start,
                 fontSize = 22.sp,
@@ -71,7 +74,7 @@ fun CardView(modifier: Modifier = Modifier) {
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(top = 5.dp, start = 15.dp),
-            text = "Sebastian Cipolat",
+            text = card.name,
             style = TextStyle(
                 textAlign = TextAlign.Start,
                 fontSize = 13.sp,
@@ -101,7 +104,7 @@ fun CardView(modifier: Modifier = Modifier) {
                 Text(
                     modifier = Modifier
                         .padding(top = 2.dp),
-                    text = "24/2000",
+                    text = card.expirationDate,
                     style = TextStyle(
                         textAlign = TextAlign.Start,
                         fontSize = 12.sp,
@@ -112,8 +115,10 @@ fun CardView(modifier: Modifier = Modifier) {
                 )
             }
 
-            Column( modifier = Modifier
-                .padding(start = 15.dp)) {
+            Column(
+                modifier = Modifier
+                    .padding(start = 15.dp)
+            ) {
                 Text(
                     modifier = Modifier
                         .padding(top = 5.dp),
@@ -129,7 +134,7 @@ fun CardView(modifier: Modifier = Modifier) {
                 Text(
                     modifier = Modifier
                         .padding(top = 2.dp),
-                    text = "xxxx",
+                    text = card.cvv,
                     style = TextStyle(
                         textAlign = TextAlign.Start,
                         fontSize = 12.sp,
@@ -145,9 +150,25 @@ fun CardView(modifier: Modifier = Modifier) {
             )
             Image(
                 contentScale = ContentScale.Crop,
-                painter = painterResource(id = R.drawable.mastercard_icon),
+                painter = painterResource(id = getCardIcon(card)),
                 contentDescription = "Card"
             )
+        }
+    }
+}
+
+fun getCardIcon(card: Card): Int {
+    return when (card.type.toLowerCase()) {
+        "visa" -> {
+            R.drawable.visa_icon
+        }
+
+        "mastercard" -> {
+            R.drawable.mastercard_icon
+        }
+
+        else -> {
+            R.drawable.chip_1
         }
     }
 }

@@ -1,7 +1,10 @@
 package com.cipolat.droidbank.ui.cards
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
@@ -15,6 +18,7 @@ import com.cipolat.droidbank.domain.cards.usecase.GetCardsUseCase
 import com.cipolat.droidbank.network.client.HttpClient
 import com.cipolat.droidbank.ui.cards.viewmodel.CardViewModel
 import com.cipolat.droidbank.ui.cards.viewmodel.CardViewModelFactory
+import com.cipolat.droidbank.ui.widgets.loading.ProgressView
 
 @Preview
 @Composable
@@ -26,17 +30,17 @@ fun CardScreen(modifier: Modifier = Modifier) {
         viewModel.getCards()
     }
     Column(Modifier.padding(start = 20.dp, top = 20.dp, end = 20.dp)) {
-        CardView(
-            modifier = Modifier
-                .padding(top = 15.dp)
-        )
-        CardView(
-            modifier = Modifier
-                .padding(top = 15.dp)
-        )
-        CardView(
-            modifier = Modifier
-                .padding(top = 15.dp)
-        )
+        if (viewModel.state.isLoading.value) {
+            ProgressView()
+        } else {
+            LazyColumn(
+                modifier = modifier,
+                verticalArrangement = Arrangement.spacedBy(10.dp)
+            ) {
+                items(viewModel.state.body.value!!.size) {
+                    CardView(Modifier.fillMaxWidth(), viewModel.state.body.value!![it])
+                }
+            }
+        }
     }
 }

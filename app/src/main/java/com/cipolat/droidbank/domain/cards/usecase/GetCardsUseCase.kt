@@ -5,7 +5,7 @@ import com.cipolat.droidbank.data.cards.repositories.CardsRepository
 import com.cipolat.droidbank.network.Resource
 
 class GetCardsUseCase(private val repository: CardsRepository) {
-    suspend operator fun invoke(): Resource<ArrayList<Card>> {
+    suspend operator fun invoke(): Resource<List<Card>> {
         return repository.getUserCards()
     }
 }
