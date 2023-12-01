@@ -23,10 +23,14 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.cipolat.droidbank.R
 import com.cipolat.droidbank.data.cards.model.Card
-import com.cipolat.droidbank.ui.theme.Blue
 import com.cipolat.droidbank.ui.theme.GrayLight
 import com.cipolat.droidbank.ui.theme.White
 import com.cipolat.droidbank.ui.theme.poppins
+
+object CardBrand {
+    const val VISA = "VISA"
+    const val MASTER_CARD = "MASTERCARD"
+}
 
 @Composable
 fun CardView(modifier: Modifier = Modifier, card: Card) {
@@ -35,7 +39,10 @@ fun CardView(modifier: Modifier = Modifier, card: Card) {
             .fillMaxWidth()
             .height(199.dp)
             .clip(shape = RoundedCornerShape(15.dp))
-            .background(Blue, shape = RoundedCornerShape(15.dp)),
+            .background(
+                color =  Color(android.graphics.Color.parseColor("#" + card.backgroundColor)),
+                shape = RoundedCornerShape(15.dp)
+            ),
     ) {
         Row(
             modifier = Modifier
@@ -158,12 +165,12 @@ fun CardView(modifier: Modifier = Modifier, card: Card) {
 }
 
 fun getCardIcon(card: Card): Int {
-    return when (card.type.toLowerCase()) {
-        "visa" -> {
+    return when (card.type.toUpperCase()) {
+        CardBrand.VISA -> {
             R.drawable.visa_icon
         }
 
-        "mastercard" -> {
+        CardBrand.MASTER_CARD -> {
             R.drawable.mastercard_icon
         }
 
