@@ -39,7 +39,8 @@ fun ErrorView(
         modifier = modifier
             .fillMaxSize()
             .padding(
-                start = 20.dp, end = 20.dp
+                start = 20.dp,
+                end = 20.dp
             ),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally

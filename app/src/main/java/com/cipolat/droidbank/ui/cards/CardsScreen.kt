@@ -54,7 +54,8 @@ fun CardScreen(modifier: Modifier = Modifier) {
                             color = MaterialTheme.colors.onPrimary,
                             fontWeight = FontWeight.Medium,
                             fontFamily = poppins
-                        ), textAlign = TextAlign.Start
+                        ),
+                        textAlign = TextAlign.Start
                     )
                 }
                 items(viewModel.state.body.value!!.size) {

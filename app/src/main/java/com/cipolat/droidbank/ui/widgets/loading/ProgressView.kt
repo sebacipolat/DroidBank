@@ -18,7 +18,9 @@ fun ProgressView(modifier: Modifier = Modifier) {
         contentAlignment = Alignment.Center
     ) {
         CircularProgressIndicator(
-            modifier = modifier.height(150.dp), color = BlueDark, strokeWidth = strokeWidth
+            modifier = modifier.height(150.dp),
+            color = BlueDark,
+            strokeWidth = strokeWidth
         )
     }
 }

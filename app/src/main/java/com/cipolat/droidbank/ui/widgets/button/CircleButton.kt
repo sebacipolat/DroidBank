@@ -2,7 +2,11 @@ package com.cipolat.droidbank.ui.widgets.button
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
@@ -41,7 +45,7 @@ fun CircleButton(
             onClick = onClick,
             colors = ButtonDefaults.buttonColors(MaterialTheme.colors.primaryVariant),
             shape = CircleShape,
-            modifier = Modifier.size(54.dp),
+            modifier = Modifier.size(54.dp)
         ) {
             Image(
                 painter = painterResource(imageResource),

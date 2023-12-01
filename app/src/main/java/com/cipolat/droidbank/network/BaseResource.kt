@@ -16,8 +16,11 @@ suspend fun <T> safeApiCall(apiCall: suspend () -> Response<T>): Resource<T> {
         }
         return error(Resource.ErrorType.API_ERROR, response.errorBody())
     } catch (e: Exception) {
-        return if (e is UnknownHostException || e is NetworkErrorException) error(Resource.ErrorType.NETWORK)
-        else error(Resource.ErrorType.API_ERROR)
+        return if (e is UnknownHostException || e is NetworkErrorException) {
+            error(Resource.ErrorType.NETWORK)
+        } else {
+            error(Resource.ErrorType.API_ERROR)
+        }
     }
 }
 

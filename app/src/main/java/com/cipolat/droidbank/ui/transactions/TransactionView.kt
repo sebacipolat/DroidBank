@@ -49,11 +49,11 @@ fun TransactionView(
             AsyncImage(
                 modifier = Modifier
                     .size(35.dp)
-                    .clip(CircleShape)                       // clip to the circle shape
+                    .clip(CircleShape) // clip to the circle shape
                     .border(2.dp, White, CircleShape),
                 contentScale = ContentScale.Crop,
                 model = item.iconUrl,
-                contentDescription = "avatar",
+                contentDescription = "avatar"
             )
         }
         Column(
@@ -66,7 +66,8 @@ fun TransactionView(
                     color = MaterialTheme.colors.onPrimary,
                     fontWeight = FontWeight.Medium,
                     fontFamily = poppins
-                ), textAlign = TextAlign.Start
+                ),
+                textAlign = TextAlign.Start
             )
             Text(
                 text = item.type,
@@ -75,7 +76,8 @@ fun TransactionView(
                     color = GrayLight,
                     fontWeight = FontWeight.Medium,
                     fontFamily = poppins
-                ), textAlign = TextAlign.Start
+                ),
+                textAlign = TextAlign.Start
             )
         }
         Divider(modifier = Modifier.weight(1f), color = Color.Transparent)
@@ -86,7 +88,8 @@ fun TransactionView(
                 color = MaterialTheme.colors.onPrimary,
                 fontWeight = FontWeight.Medium,
                 fontFamily = poppins
-            ), textAlign = TextAlign.End
+            ),
+            textAlign = TextAlign.End
         )
     }
 }

@@ -15,9 +15,9 @@ import com.cipolat.droidbank.ui.navigation.NavigationGraph
 
 @Composable
 fun BottomNav(context: Activity, bottomBarState: Boolean, navController: NavHostController) {
-    //val systemUiController = rememberSystemUiController()
+    // val systemUiController = rememberSystemUiController()
     val backgrColor = MaterialTheme.colors.background
-    context.window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
+    context.window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
     SideEffect {
         // Update all of the system bar colors to be transparent, and use
         // dark icons if we're in light theme
@@ -27,8 +27,9 @@ fun BottomNav(context: Activity, bottomBarState: Boolean, navController: NavHost
         )*/
     }
 
-    Scaffold(modifier = Modifier
-        .systemBarsPadding(),
+    Scaffold(
+        modifier = Modifier
+            .systemBarsPadding(),
         bottomBar = {
             BottomNavigationBar(
                 context,

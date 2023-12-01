@@ -10,5 +10,5 @@ data class Card(
     @Json(name = "expiration_date") val expirationDate: String,
     val cvv: String,
     val type: String,
-    @Json(name = "background_color") val backgroundColor: String,
+    @Json(name = "background_color") val backgroundColor: String
 )

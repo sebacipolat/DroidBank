@@ -27,23 +27,28 @@ fun TransactionHeader(
             .padding(bottom = 20.dp)
     ) {
         Text(
-            text = "Transaction", style = TextStyle(
+            text = "Transaction",
+            style = TextStyle(
                 fontSize = 18.sp,
                 color = MaterialTheme.colors.onPrimary,
                 fontWeight = FontWeight.Medium,
                 fontFamily = poppins
-            ), textAlign = TextAlign.Start
+            ),
+            textAlign = TextAlign.Start
         )
         Divider(
-            modifier = Modifier.weight(1f), color = Color.Transparent
+            modifier = Modifier.weight(1f),
+            color = Color.Transparent
         )
         Text(
-            text = "See All", style = TextStyle(
+            text = "See All",
+            style = TextStyle(
                 fontSize = 14.sp,
                 color = BlueDark,
                 fontWeight = FontWeight.Medium,
                 fontFamily = poppins
-            ), textAlign = TextAlign.Start
+            ),
+            textAlign = TextAlign.Start
         )
     }
 }

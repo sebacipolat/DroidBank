@@ -3,7 +3,6 @@ package com.cipolat.droidbank.ui.cards.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.cipolat.droidbank.domain.cards.usecase.GetCardsUseCase
-import com.cipolat.droidbank.domain.home.usecase.GetHomeUserUseCase
 
 class CardViewModelFactory(private val useCase: GetCardsUseCase) :
     ViewModelProvider.Factory {

@@ -12,7 +12,7 @@ import com.cipolat.droidbank.data.home.model.TransactionItem
 @Composable
 fun Transactions(
     modifier: Modifier = Modifier,
-    transactions: List<TransactionItem>,
+    transactions: List<TransactionItem>
 ) {
     LazyColumn(
         modifier = modifier,

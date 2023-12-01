@@ -26,14 +26,15 @@ fun BottomNavigationBar(context: Context, visibility: Boolean, navController: Na
         exit = slideOutVertically(targetOffsetY = { it }),
         content = {
             BottomNavigation(
-                backgroundColor = colorResource(id = R.color.white), contentColor = Blue
+                backgroundColor = colorResource(id = R.color.white),
+                contentColor = Blue
             ) {
-
                 itemsBottom.forEach { item ->
                     BottomNavigationItem(
                         icon = {
                             Icon(
-                                painterResource(id = item.icon), contentDescription = item.title
+                                painterResource(id = item.icon),
+                                contentDescription = item.title
                             )
                         },
                         selectedContentColor = Blue,
@@ -50,8 +51,10 @@ fun BottomNavigationBar(context: Context, visibility: Boolean, navController: Na
                                 launchSingleTop = true
                                 restoreState = true
                             }
-                        })
+                        }
+                    )
                 }
             }
-        })
+        }
+    )
 }

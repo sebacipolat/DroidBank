@@ -40,14 +40,14 @@ fun CardView(modifier: Modifier = Modifier, card: Card) {
             .height(199.dp)
             .clip(shape = RoundedCornerShape(15.dp))
             .background(
-                color =  Color(android.graphics.Color.parseColor("#" + card.backgroundColor)),
+                color = Color(android.graphics.Color.parseColor("#" + card.backgroundColor)),
                 shape = RoundedCornerShape(15.dp)
-            ),
+            )
     ) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(start = 15.dp, top = 15.dp, end = 15.dp),
+                .padding(start = 15.dp, top = 15.dp, end = 15.dp)
         ) {
             Image(
                 contentScale = ContentScale.Fit,
@@ -56,7 +56,8 @@ fun CardView(modifier: Modifier = Modifier, card: Card) {
             )
             Divider(
                 modifier = Modifier
-                    .weight(1.5f), color = Color.Transparent
+                    .weight(1.5f),
+                color = Color.Transparent
             )
             Image(
                 contentScale = ContentScale.Crop,
@@ -93,7 +94,7 @@ fun CardView(modifier: Modifier = Modifier, card: Card) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(start = 15.dp, top = 8.dp, end = 15.dp),
+                .padding(start = 15.dp, top = 8.dp, end = 15.dp)
         ) {
             Column() {
                 Text(
@@ -153,7 +154,8 @@ fun CardView(modifier: Modifier = Modifier, card: Card) {
             }
             Divider(
                 modifier = Modifier
-                    .weight(1.5f), color = Color.Transparent
+                    .weight(1.5f),
+                color = Color.Transparent
             )
             Image(
                 contentScale = ContentScale.Crop,

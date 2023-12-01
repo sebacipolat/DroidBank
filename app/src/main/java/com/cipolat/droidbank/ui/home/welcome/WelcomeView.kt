@@ -43,7 +43,7 @@ fun WelcomeView(
                 .border(2.dp, White, CircleShape),
             contentScale = ContentScale.Crop,
             model = user.avatarUrl,
-            contentDescription = "avatar",
+            contentDescription = "avatar"
         )
         Column(
             Modifier.padding(start = 12.dp),
@@ -58,7 +58,8 @@ fun WelcomeView(
                     color = Gray,
                     fontWeight = FontWeight.Normal,
                     fontFamily = poppins
-                ), textAlign = TextAlign.Start
+                ),
+                textAlign = TextAlign.Start
             )
             Text(
                 modifier = Modifier
@@ -69,7 +70,8 @@ fun WelcomeView(
                     color = MaterialTheme.colors.onPrimary,
                     fontWeight = FontWeight.Medium,
                     fontFamily = poppins
-                ), textAlign = TextAlign.Start
+                ),
+                textAlign = TextAlign.Start
             )
         }
     }

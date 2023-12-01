@@ -6,7 +6,6 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.cipolat.droidbank.domain.cards.usecase.GetCardsUseCase
-import com.cipolat.droidbank.domain.home.usecase.GetHomeUserUseCase
 import com.cipolat.droidbank.network.Resource
 import com.cipolat.droidbank.ui.cards.model.CardScreenState
 import kotlinx.coroutines.launch
@@ -24,7 +23,7 @@ class CardViewModel(private val useCase: GetCardsUseCase) : ViewModel() {
             when (response.status) {
                 Resource.Status.SUCCESS -> {
                     state.isLoading.value = false
-                    state.body.value=response.data
+                    state.body.value = response.data
                 }
 
                 Resource.Status.ERROR -> {

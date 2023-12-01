@@ -9,14 +9,19 @@ import com.cipolat.droidbank.ui.widgets.button.CircleButton
 
 @Composable
 fun Menu(
-    modifier: Modifier = Modifier, items: ArrayList<MenuItem>, onClick: () -> (Unit)
+    modifier: Modifier = Modifier,
+    items: ArrayList<MenuItem>,
+    onClick: () -> (Unit)
 ) {
     LazyRow(
-        modifier = modifier, horizontalArrangement = Arrangement.SpaceBetween
+        modifier = modifier,
+        horizontalArrangement = Arrangement.SpaceBetween
     ) {
         items(items = items, itemContent = { item ->
             CircleButton(
-                iconIDLight = item.iconLight, iconIDDark = item.iconDark, text = item.text
+                iconIDLight = item.iconLight,
+                iconIDDark = item.iconDark,
+                text = item.text
             ) {
                 onClick()
             }

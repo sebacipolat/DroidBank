@@ -12,7 +12,7 @@ data class Resource<out T>(
     enum class Status {
         SUCCESS,
         ERROR,
-        LOADING,
+        LOADING
     }
 
     enum class ErrorType {
