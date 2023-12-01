@@ -5,11 +5,17 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.cipolat.droidbank.data.cards.datasource.CardsRemoteDataSource
 import com.cipolat.droidbank.data.cards.repositories.CardsRepositoryImpl
@@ -18,6 +24,7 @@ import com.cipolat.droidbank.domain.cards.usecase.GetCardsUseCase
 import com.cipolat.droidbank.network.client.HttpClient
 import com.cipolat.droidbank.ui.cards.viewmodel.CardViewModel
 import com.cipolat.droidbank.ui.cards.viewmodel.CardViewModelFactory
+import com.cipolat.droidbank.ui.theme.poppins
 import com.cipolat.droidbank.ui.widgets.loading.ProgressView
 
 @Preview
@@ -37,6 +44,19 @@ fun CardScreen(modifier: Modifier = Modifier) {
                 modifier = modifier,
                 verticalArrangement = Arrangement.spacedBy(10.dp)
             ) {
+                item {
+                    Text(
+                        modifier = Modifier
+                            .fillMaxWidth(),
+                        text = "Cards",
+                        style = TextStyle(
+                            fontSize = 18.sp,
+                            color = MaterialTheme.colors.onPrimary,
+                            fontWeight = FontWeight.Medium,
+                            fontFamily = poppins
+                        ), textAlign = TextAlign.Start
+                    )
+                }
                 items(viewModel.state.body.value!!.size) {
                     CardView(Modifier.fillMaxWidth(), viewModel.state.body.value!![it])
                 }

@@ -39,7 +39,7 @@ fun WelcomeView(
             modifier = Modifier
                 .height(50.dp)
                 .width(50.dp)
-                .clip(CircleShape)                       // clip to the circle shape
+                .clip(CircleShape)
                 .border(2.dp, White, CircleShape),
             contentScale = ContentScale.Crop,
             model = user.avatarUrl,
