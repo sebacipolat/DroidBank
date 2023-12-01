@@ -1,8 +1,13 @@
 package com.cipolat.droidbank.ui.transactions
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Divider
 import androidx.compose.material.MaterialTheme
@@ -12,16 +17,17 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.cipolat.droidbank.R
+import coil.compose.AsyncImage
 import com.cipolat.droidbank.data.home.model.TransactionItem
 import com.cipolat.droidbank.ui.theme.Gray
 import com.cipolat.droidbank.ui.theme.GrayLight
+import com.cipolat.droidbank.ui.theme.White
 import com.cipolat.droidbank.ui.theme.poppins
 
 @Composable
@@ -40,18 +46,21 @@ fun TransactionView(
                 .background(Gray),
             contentAlignment = Alignment.Center
         ) {
-            Image(
-                painter = painterResource(R.drawable.spotify),
-                contentDescription = "avatar",
+            AsyncImage(
                 modifier = Modifier
-                    .height(35.dp)
+                    .size(35.dp)
+                    .clip(CircleShape)                       // clip to the circle shape
+                    .border(2.dp, White, CircleShape),
+                contentScale = ContentScale.Crop,
+                model = item.iconUrl,
+                contentDescription = "avatar",
             )
         }
         Column(
             modifier = Modifier.padding(start = 15.dp)
         ) {
             Text(
-                text = item.value,
+                text = item.name,
                 style = TextStyle(
                     fontSize = 16.sp,
                     color = MaterialTheme.colors.onPrimary,
@@ -60,7 +69,7 @@ fun TransactionView(
                 ), textAlign = TextAlign.Start
             )
             Text(
-                text = "Entertainment",
+                text = item.type,
                 style = TextStyle(
                     fontSize = 14.sp,
                     color = GrayLight,
@@ -71,7 +80,7 @@ fun TransactionView(
         }
         Divider(modifier = Modifier.weight(1f), color = Color.Transparent)
         Text(
-            text = "-$5.99",
+            text = item.value,
             style = TextStyle(
                 fontSize = 16.sp,
                 color = MaterialTheme.colors.onPrimary,
