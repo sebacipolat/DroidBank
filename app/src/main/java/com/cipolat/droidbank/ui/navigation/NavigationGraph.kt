@@ -17,7 +17,7 @@ fun NavigationGraph(context: Activity, navController: NavHostController) {
         startDestination = NavigationItem.Home.route
     ) {
         composable(NavigationItem.Home.route) {
-            HomeScreen()
+            HomeScreen(context = context)
         }
         composable(NavigationItem.Cards.route) {
             CardScreen()

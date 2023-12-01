@@ -1,4 +1,4 @@
-package com.cipolat.droidbank
+package com.cipolat.droidbank.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -10,6 +10,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.cipolat.droidbank.BuildConfig
 import com.cipolat.droidbank.network.client.HttpClient
 import com.cipolat.droidbank.ui.bottomnav.BottomNav
 import com.cipolat.droidbank.ui.cards.CardScreen
