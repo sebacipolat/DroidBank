@@ -1,7 +1,6 @@
 package com.cipolat.droidbank.ui.transactions
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -27,11 +26,10 @@ import coil.compose.AsyncImage
 import com.cipolat.droidbank.data.home.model.TransactionItem
 import com.cipolat.droidbank.ui.theme.Gray
 import com.cipolat.droidbank.ui.theme.GrayLight
-import com.cipolat.droidbank.ui.theme.White
 import com.cipolat.droidbank.ui.theme.poppins
 
 @Composable
-fun TransactionView(
+fun TransactionViewItem(
     modifier: Modifier = Modifier,
     item: TransactionItem
 ) {
@@ -49,8 +47,8 @@ fun TransactionView(
             AsyncImage(
                 modifier = Modifier
                     .size(35.dp)
-                    .clip(CircleShape) // clip to the circle shape
-                    .border(2.dp, White, CircleShape),
+                    .clip(CircleShape)
+                    .padding(5.dp),
                 contentScale = ContentScale.Crop,
                 model = item.iconUrl,
                 contentDescription = "avatar"

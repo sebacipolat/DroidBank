@@ -4,10 +4,19 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import com.cipolat.droidbank.R
 import com.cipolat.droidbank.data.home.model.TransactionItem
+import com.cipolat.droidbank.ui.theme.poppins
 
 @Composable
 fun Transactions(
@@ -18,8 +27,22 @@ fun Transactions(
         modifier = modifier,
         verticalArrangement = Arrangement.spacedBy(10.dp)
     ) {
+        item {
+            Text(
+                modifier = Modifier
+                    .fillMaxWidth(),
+                text = stringResource(id = R.string.home_transactions_lbl),
+                style = TextStyle(
+                    fontSize = 18.sp,
+                    color = MaterialTheme.colors.onPrimary,
+                    fontWeight = FontWeight.Medium,
+                    fontFamily = poppins
+                ),
+                textAlign = TextAlign.Start
+            )
+        }
         items(transactions) {
-            TransactionView(Modifier.fillMaxWidth(), it)
+            TransactionViewItem(Modifier.fillMaxWidth(), it)
         }
     }
 }
