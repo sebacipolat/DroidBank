@@ -22,7 +22,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.cipolat.droidbank.R
-import com.cipolat.droidbank.data.cards.model.Card
+import com.cipolat.droidbank.data.cards.remote.model.RemoteCard
 import com.cipolat.droidbank.ui.theme.GrayLight
 import com.cipolat.droidbank.ui.theme.White
 import com.cipolat.droidbank.ui.theme.poppins
@@ -33,14 +33,14 @@ object CardBrand {
 }
 
 @Composable
-fun CardView(modifier: Modifier = Modifier, card: Card) {
+fun CardView(modifier: Modifier = Modifier, remoteCard: RemoteCard) {
     Column(
         modifier = modifier
             .fillMaxWidth()
             .height(199.dp)
             .clip(shape = RoundedCornerShape(15.dp))
             .background(
-                color = Color(android.graphics.Color.parseColor("#" + card.backgroundColor)),
+                color = Color(android.graphics.Color.parseColor("#" + remoteCard.backgroundColor)),
                 shape = RoundedCornerShape(15.dp)
             )
     ) {
@@ -69,7 +69,7 @@ fun CardView(modifier: Modifier = Modifier, card: Card) {
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(top = 30.dp, start = 15.dp),
-            text = card.number,
+            text = remoteCard.number,
             style = TextStyle(
                 textAlign = TextAlign.Start,
                 fontSize = 22.sp,
@@ -82,7 +82,7 @@ fun CardView(modifier: Modifier = Modifier, card: Card) {
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(top = 5.dp, start = 15.dp),
-            text = card.name,
+            text = remoteCard.name,
             style = TextStyle(
                 textAlign = TextAlign.Start,
                 fontSize = 13.sp,
@@ -112,7 +112,7 @@ fun CardView(modifier: Modifier = Modifier, card: Card) {
                 Text(
                     modifier = Modifier
                         .padding(top = 2.dp),
-                    text = card.expirationDate,
+                    text = remoteCard.expirationDate,
                     style = TextStyle(
                         textAlign = TextAlign.Start,
                         fontSize = 12.sp,
@@ -142,7 +142,7 @@ fun CardView(modifier: Modifier = Modifier, card: Card) {
                 Text(
                     modifier = Modifier
                         .padding(top = 2.dp),
-                    text = card.cvv,
+                    text = remoteCard.cvv,
                     style = TextStyle(
                         textAlign = TextAlign.Start,
                         fontSize = 12.sp,
@@ -159,15 +159,15 @@ fun CardView(modifier: Modifier = Modifier, card: Card) {
             )
             Image(
                 contentScale = ContentScale.Crop,
-                painter = painterResource(id = getCardIcon(card)),
+                painter = painterResource(id = getCardIcon(remoteCard)),
                 contentDescription = "Card"
             )
         }
     }
 }
 
-fun getCardIcon(card: Card): Int {
-    return when (card.type.toUpperCase()) {
+fun getCardIcon(remoteCard: RemoteCard): Int {
+    return when (remoteCard.type.toUpperCase()) {
         CardBrand.VISA -> {
             R.drawable.visa_icon
         }

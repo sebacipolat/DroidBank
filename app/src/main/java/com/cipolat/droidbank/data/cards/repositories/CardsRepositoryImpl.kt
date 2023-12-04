@@ -1,25 +1,46 @@
 package com.cipolat.droidbank.data.cards.repositories
 
+import com.cipolat.droidbank.data.cards.datasource.CardsLocalDataSource
 import com.cipolat.droidbank.data.cards.datasource.CardsRemoteDataSource
+import com.cipolat.droidbank.data.cards.local.entities.toCardList
 import com.cipolat.droidbank.data.cards.model.Card
-import com.cipolat.droidbank.network.Resource
+import com.cipolat.droidbank.data.network.Resource
 
-class CardsRepositoryImpl(private val remoteDataSource: CardsRemoteDataSource) : CardsRepository {
+class CardsRepositoryImpl(
+    private val localDataSource: CardsLocalDataSource,
+    private val remoteDataSource: CardsRemoteDataSource
+) : CardsRepository {
 
-    override suspend fun getUserCards(): Resource<List<Card>> {
-        val response = remoteDataSource.getCards()
-        return when (response.status) {
-            Resource.Status.SUCCESS -> {
-                response
+    override suspend fun getUserCards(cacheTimeLimit: Int): Resource<List<Card>> {
+        val storedSinceCards = localDataSource.getCardsSince(cacheTimeLimit)
+        if (storedSinceCards.isEmpty()) {
+            val response = remoteDataSource.getCards()
+            val data = response.data
+            when (response.status) {
+                Resource.Status.SUCCESS -> {
+                    localDataSource.saveCards(data!!)
+                    return Resource.success(storedSinceCards.toCardList())
+                }
+
+                Resource.Status.ERROR -> {
+                    val allCards = localDataSource.getCards()
+                    return if (allCards.isEmpty()) {
+                        Resource.error(
+                            errorType = response.errorType,
+                            data = allCards.toCardList()
+                        )
+                    } else {
+                        Resource.error(response.errorType)
+                    }
+                }
+
+                else -> {
+                    return Resource.error(response.errorType)
+                }
             }
-
-            Resource.Status.ERROR -> {
-                response
-            }
-
-            else -> {
-                response
-            }
+        } else {
+            return Resource.success(storedSinceCards.toCardList())
         }
     }
+
 }

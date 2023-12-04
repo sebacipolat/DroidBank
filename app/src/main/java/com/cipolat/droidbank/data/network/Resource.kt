@@ -1,4 +1,4 @@
-package com.cipolat.droidbank.network
+package com.cipolat.droidbank.data.network
 
 import okhttp3.ResponseBody
 
@@ -25,11 +25,15 @@ data class Resource<out T>(
             return Resource(Status.SUCCESS, data, null)
         }
 
-        fun <T> error(errorType: ErrorType? = null, errorBody: ResponseBody? = null): Resource<T> {
+        fun <T> error(
+            errorType: ErrorType? = null,
+            errorBody: ResponseBody? = null,
+            data: T? = null
+        ): Resource<T> {
             return Resource(
                 status = Status.ERROR,
                 errorType = errorType,
-                data = null,
+                data = data,
                 extra = errorBody
             )
         }

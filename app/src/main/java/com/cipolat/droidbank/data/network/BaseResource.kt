@@ -1,4 +1,4 @@
-package com.cipolat.droidbank.network
+package com.cipolat.droidbank.data.network
 
 import android.accounts.NetworkErrorException
 import okhttp3.ResponseBody

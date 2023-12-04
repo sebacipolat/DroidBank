@@ -4,7 +4,7 @@ import androidx.annotation.Keep
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import com.cipolat.droidbank.data.home.model.HomeResponse
-import com.cipolat.droidbank.network.Resource
+import com.cipolat.droidbank.data.network.Resource
 
 @Keep
 data class HomeScreenState(

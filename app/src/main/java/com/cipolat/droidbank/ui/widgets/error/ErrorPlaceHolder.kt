@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.cipolat.droidbank.R
-import com.cipolat.droidbank.network.Resource
+import com.cipolat.droidbank.data.network.Resource
 
 @Composable
 fun ErrorPlaceHolder(

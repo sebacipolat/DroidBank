@@ -1,4 +1,4 @@
-package com.cipolat.droidbank.network.client
+package com.cipolat.droidbank.data.network.client
 
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory

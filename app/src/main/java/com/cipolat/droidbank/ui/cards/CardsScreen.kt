@@ -19,11 +19,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.cipolat.droidbank.R
+import com.cipolat.droidbank.data.cards.datasource.CardsLocalDataSource
 import com.cipolat.droidbank.data.cards.datasource.CardsRemoteDataSource
+import com.cipolat.droidbank.data.cards.remote.service.CardsService
 import com.cipolat.droidbank.data.cards.repositories.CardsRepositoryImpl
-import com.cipolat.droidbank.data.cards.service.CardsService
+import com.cipolat.droidbank.data.database.DataStore
+import com.cipolat.droidbank.data.network.client.HttpClient
 import com.cipolat.droidbank.domain.cards.usecase.GetCardsUseCase
-import com.cipolat.droidbank.network.client.HttpClient
 import com.cipolat.droidbank.ui.cards.viewmodel.CardViewModel
 import com.cipolat.droidbank.ui.cards.viewmodel.CardViewModelFactory
 import com.cipolat.droidbank.ui.theme.poppins
@@ -33,7 +35,12 @@ import com.cipolat.droidbank.ui.widgets.loading.ProgressView
 @Composable
 fun CardScreen(modifier: Modifier = Modifier) {
     val service = HttpClient.getClient().create(CardsService::class.java)
-    val useCase = GetCardsUseCase(CardsRepositoryImpl(CardsRemoteDataSource(service)))
+    val useCase = GetCardsUseCase(
+        CardsRepositoryImpl(
+            CardsLocalDataSource(DataStore),
+            CardsRemoteDataSource(service)
+        )
+    )
     val viewModel: CardViewModel = viewModel(factory = CardViewModelFactory(useCase))
     LaunchedEffect(Unit) {
         viewModel.getCards()

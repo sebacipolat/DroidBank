@@ -6,7 +6,7 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.cipolat.droidbank.domain.home.usecase.GetHomeUserUseCase
-import com.cipolat.droidbank.network.Resource
+import com.cipolat.droidbank.data.network.Resource
 import com.cipolat.droidbank.ui.home.model.HomeScreenState
 import kotlinx.coroutines.launch
 
