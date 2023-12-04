@@ -26,7 +26,7 @@ fun RemoteCard.asEntity() = LocalUserCards(
     backgroundColor = backgroundColor,
     cvv = cvv,
     type = type,
-    lastUpdate = DateUtils.getNowDateString()
+    lastUpdate = System.currentTimeMillis().toString()
 )
 
 fun LocalUserCards.asCard() = Card(

@@ -4,6 +4,7 @@ import com.cipolat.droidbank.data.cards.datasource.CardsLocalDataSource
 import com.cipolat.droidbank.data.cards.datasource.CardsRemoteDataSource
 import com.cipolat.droidbank.data.cards.local.entities.toCardList
 import com.cipolat.droidbank.data.cards.model.Card
+import com.cipolat.droidbank.data.cards.remote.model.toCardList
 import com.cipolat.droidbank.data.network.Resource
 
 class CardsRepositoryImpl(
@@ -19,7 +20,7 @@ class CardsRepositoryImpl(
             when (response.status) {
                 Resource.Status.SUCCESS -> {
                     localDataSource.saveCards(data!!)
-                    return Resource.success(storedSinceCards.toCardList())
+                    return Resource.success(data.toCardList())
                 }
 
                 Resource.Status.ERROR -> {

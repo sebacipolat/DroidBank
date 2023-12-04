@@ -5,8 +5,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.cipolat.droidbank.domain.cards.usecase.GetCardsUseCase
 import com.cipolat.droidbank.data.network.Resource
+import com.cipolat.droidbank.domain.cards.usecase.GetCardsUseCase
 import com.cipolat.droidbank.ui.cards.model.CardScreenState
 import kotlinx.coroutines.launch
 
@@ -29,6 +29,8 @@ class CardViewModel(private val useCase: GetCardsUseCase) : ViewModel() {
                 Resource.Status.ERROR -> {
                     state.isLoading.value = false
                     state.isError = response.errorType
+                    if (!state.body.value.isNullOrEmpty())
+                        state.body.value = response.data
                 }
 
                 Resource.Status.LOADING -> {

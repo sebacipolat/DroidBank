@@ -28,7 +28,7 @@ object DataStore {
 
     suspend fun getCardsSince(minutes: Int): List<LocalUserCards> {
         db.let {
-            return it.userCardsDao().getCardSince(minutes)
+            return it.userCardsDao().getCardSince(minutes.toString(),System.currentTimeMillis().toString())
         }
     }
 

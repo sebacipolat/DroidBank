@@ -37,8 +37,7 @@ fun CardScreen(modifier: Modifier = Modifier) {
     val service = HttpClient.getClient().create(CardsService::class.java)
     val useCase = GetCardsUseCase(
         CardsRepositoryImpl(
-            CardsLocalDataSource(DataStore),
-            CardsRemoteDataSource(service)
+            CardsLocalDataSource(DataStore), CardsRemoteDataSource(service)
         )
     )
     val viewModel: CardViewModel = viewModel(factory = CardViewModelFactory(useCase))
@@ -50,13 +49,11 @@ fun CardScreen(modifier: Modifier = Modifier) {
             ProgressView()
         } else {
             LazyColumn(
-                modifier = modifier,
-                verticalArrangement = Arrangement.spacedBy(10.dp)
+                modifier = modifier, verticalArrangement = Arrangement.spacedBy(10.dp)
             ) {
                 item {
                     Text(
-                        modifier = Modifier
-                            .fillMaxWidth(),
+                        modifier = Modifier.fillMaxWidth(),
                         text = stringResource(id = R.string.cards_header_lbl),
                         style = TextStyle(
                             fontSize = 18.sp,
@@ -67,8 +64,10 @@ fun CardScreen(modifier: Modifier = Modifier) {
                         textAlign = TextAlign.Start
                     )
                 }
-                items(viewModel.state.body.value!!.size) {
-                    CardView(Modifier.fillMaxWidth(), viewModel.state.body.value!![it])
+                if (viewModel.state.body.value?.isNotEmpty() == true) {
+                    items(viewModel.state.body.value!!.size) {
+                        CardView(Modifier.fillMaxWidth(), viewModel.state.body.value!![it])
+                    }
                 }
             }
         }
