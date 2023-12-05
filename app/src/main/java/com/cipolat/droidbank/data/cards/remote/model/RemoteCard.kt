@@ -1,9 +1,7 @@
 package com.cipolat.droidbank.data.cards.remote.model
 
-import com.cipolat.droidbank.data.cards.local.entities.LocalUserCards
 import com.cipolat.droidbank.data.cards.local.entities.asCard
 import com.cipolat.droidbank.data.cards.model.Card
-import com.cipolat.droidbank.data.utils.DateUtils
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
@@ -31,4 +29,3 @@ fun List<RemoteCard>.toCardList(): List<Card> {
     }
     return finalList
 }
-

@@ -5,7 +5,6 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.cipolat.droidbank.data.cards.model.Card
 import com.cipolat.droidbank.data.cards.remote.model.RemoteCard
-import com.cipolat.droidbank.data.utils.DateUtils
 
 @Entity(tableName = "user_cards")
 data class LocalUserCards(
@@ -45,5 +44,3 @@ fun List<LocalUserCards>.toCardList(): List<Card> {
     }
     return finalList
 }
-
-

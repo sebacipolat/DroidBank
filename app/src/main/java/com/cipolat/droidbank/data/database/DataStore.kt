@@ -9,11 +9,12 @@ import com.cipolat.droidbank.data.cards.remote.model.RemoteCard
 object DataStore {
     private const val DATABASE_NAME = "DROID_BANK_DATABASE"
 
-    private lateinit var db: AppDatabase
+    private lateinit var db: AppDataBase
     fun init(context: Context) {
         db = Room.databaseBuilder(
             context,
-            AppDatabase::class.java, DATABASE_NAME
+            AppDataBase::class.java,
+            DATABASE_NAME
         ).build()
     }
 
@@ -28,7 +29,7 @@ object DataStore {
 
     suspend fun getCardsSince(minutes: Int): List<LocalUserCards> {
         db.let {
-            return it.userCardsDao().getCardSince(minutes.toString(),System.currentTimeMillis().toString())
+            return it.userCardsDao().getCardSince(minutes.toString(), System.currentTimeMillis().toString())
         }
     }
 

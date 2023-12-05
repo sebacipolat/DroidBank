@@ -4,7 +4,6 @@ import androidx.annotation.Keep
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import com.cipolat.droidbank.data.cards.model.Card
-import com.cipolat.droidbank.data.cards.remote.model.RemoteCard
 import com.cipolat.droidbank.data.network.Resource
 
 @Keep

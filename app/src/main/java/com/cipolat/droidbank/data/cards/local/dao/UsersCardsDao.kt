@@ -11,7 +11,7 @@ interface UsersCardsDao {
     suspend fun saveCard(card: LocalUserCards)
 
     @Query("SELECT * FROM user_cards WHERE (:timeStamp - last_update) / 60000 <= :timeLimit")
-    suspend fun getCardSince(timeLimit:String, timeStamp:String): List<LocalUserCards>
+    suspend fun getCardSince(timeLimit: String, timeStamp: String): List<LocalUserCards>
 
     @Query("SELECT * FROM user_cards")
     suspend fun getCards(): List<LocalUserCards>

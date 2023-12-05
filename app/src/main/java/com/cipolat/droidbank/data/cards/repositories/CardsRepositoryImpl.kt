@@ -43,5 +43,4 @@ class CardsRepositoryImpl(
             return Resource.success(storedSinceCards.toCardList())
         }
     }
-
 }

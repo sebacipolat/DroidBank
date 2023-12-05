@@ -6,6 +6,6 @@ import com.cipolat.droidbank.data.cards.local.dao.UsersCardsDao
 import com.cipolat.droidbank.data.cards.local.entities.LocalUserCards
 
 @Database(entities = [LocalUserCards::class], version = 1, exportSchema = false)
-abstract class AppDatabase : RoomDatabase() {
+abstract class AppDataBase : RoomDatabase() {
     abstract fun userCardsDao(): UsersCardsDao
 }

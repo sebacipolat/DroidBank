@@ -52,7 +52,8 @@ fun CardScreen(modifier: Modifier = Modifier) {
     val service = HttpClient.getClient().create(CardsService::class.java)
     val useCase = GetCardsUseCase(
         CardsRepositoryImpl(
-            CardsLocalDataSource(DataStore), CardsRemoteDataSource(service)
+            CardsLocalDataSource(DataStore),
+            CardsRemoteDataSource(service)
         )
     )
     val viewModel: CardViewModel = viewModel(factory = CardViewModelFactory(useCase))
@@ -83,7 +84,8 @@ fun CardScreen(modifier: Modifier = Modifier) {
 @Composable
 fun cardBody(modifier: Modifier, body: MutableState<List<Card>?>) {
     LazyColumn(
-        modifier = modifier, verticalArrangement = Arrangement.spacedBy(10.dp)
+        modifier = modifier,
+        verticalArrangement = Arrangement.spacedBy(10.dp)
     ) {
         item {
             Text(

@@ -29,8 +29,9 @@ class CardViewModel(private val useCase: GetCardsUseCase) : ViewModel() {
                 Resource.Status.ERROR -> {
                     state.isLoading.value = false
                     state.isError = response.errorType
-                    if (!state.body.value.isNullOrEmpty())
+                    if (!state.body.value.isNullOrEmpty()) {
                         state.body.value = response.data
+                    }
                 }
 
                 Resource.Status.LOADING -> {
