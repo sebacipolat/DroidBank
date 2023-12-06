@@ -13,13 +13,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.cipolat.droidbank.R
+import com.cipolat.droidbank.data.database.DataStore
+import com.cipolat.droidbank.data.home.datasource.HomeLocalDataSource
 import com.cipolat.droidbank.data.home.datasource.HomeRemoteDataSource
 import com.cipolat.droidbank.data.home.remote.model.HomeResponse
-import com.cipolat.droidbank.data.home.repositories.HomeRepositoryImpl
 import com.cipolat.droidbank.data.home.remote.service.HomeService
+import com.cipolat.droidbank.data.home.repositories.HomeRepositoryImpl
 import com.cipolat.droidbank.data.network.client.HttpClient
 import com.cipolat.droidbank.domain.home.usecase.GetHomeUserUseCase
-import com.cipolat.droidbank.ui.balance.BalanceView
+import com.cipolat.droidbank.ui.home.balance.BalanceView
 import com.cipolat.droidbank.ui.home.viewmodel.HomeViewModel
 import com.cipolat.droidbank.ui.home.viewmodel.HomeViewModelFactory
 import com.cipolat.droidbank.ui.home.welcome.WelcomeView
@@ -31,7 +33,12 @@ import com.cipolat.droidbank.ui.widgets.menu.Menu
 @Composable
 fun HomeScreen(modifier: Modifier = Modifier, context: Context) {
     val service = HttpClient.getClient().create(HomeService::class.java)
-    val useCase = GetHomeUserUseCase(HomeRepositoryImpl(HomeRemoteDataSource(service)))
+    val useCase = GetHomeUserUseCase(
+        HomeRepositoryImpl(
+            HomeLocalDataSource(DataStore),
+            HomeRemoteDataSource(service)
+        )
+    )
     val viewModel: HomeViewModel = viewModel(factory = HomeViewModelFactory(useCase))
     LaunchedEffect(Unit) {
         viewModel.getUserHome()
@@ -64,7 +71,7 @@ fun HomeBody(body: HomeResponse?, context: Context) {
         this?.let { WelcomeView(it.user) }
         this?.let {
             BalanceView(
-                modifier = androidx.compose.ui.Modifier
+                modifier = Modifier
                     .padding(top = 25.dp),
                 it.balance
             )
