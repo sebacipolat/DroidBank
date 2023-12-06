@@ -23,7 +23,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
-import com.cipolat.droidbank.data.home.model.TransactionItem
+import com.cipolat.droidbank.data.transactions.remote.model.TransactionItem
 import com.cipolat.droidbank.ui.theme.Gray
 import com.cipolat.droidbank.ui.theme.GrayLight
 import com.cipolat.droidbank.ui.theme.poppins

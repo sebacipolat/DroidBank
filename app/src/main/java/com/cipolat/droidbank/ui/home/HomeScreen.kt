@@ -14,9 +14,9 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.cipolat.droidbank.R
 import com.cipolat.droidbank.data.home.datasource.HomeRemoteDataSource
-import com.cipolat.droidbank.data.home.model.HomeResponse
+import com.cipolat.droidbank.data.home.remote.model.HomeResponse
 import com.cipolat.droidbank.data.home.repositories.HomeRepositoryImpl
-import com.cipolat.droidbank.data.home.service.HomeService
+import com.cipolat.droidbank.data.home.remote.service.HomeService
 import com.cipolat.droidbank.data.network.client.HttpClient
 import com.cipolat.droidbank.domain.home.usecase.GetHomeUserUseCase
 import com.cipolat.droidbank.ui.balance.BalanceView

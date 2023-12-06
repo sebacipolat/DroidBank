@@ -1,7 +1,7 @@
 package com.cipolat.droidbank.data.home.datasource
 
-import com.cipolat.droidbank.data.home.model.HomeResponse
-import com.cipolat.droidbank.data.home.service.HomeService
+import com.cipolat.droidbank.data.home.remote.model.HomeResponse
+import com.cipolat.droidbank.data.home.remote.service.HomeService
 import com.cipolat.droidbank.data.network.Resource
 import com.cipolat.droidbank.data.network.safeApiCall
 

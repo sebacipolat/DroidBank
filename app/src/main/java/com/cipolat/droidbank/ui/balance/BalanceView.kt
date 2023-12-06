@@ -15,7 +15,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.cipolat.droidbank.data.home.model.Balance
+import com.cipolat.droidbank.data.home.remote.model.Balance
 import com.cipolat.droidbank.ui.theme.Blue
 import com.cipolat.droidbank.ui.theme.GrayLight
 import com.cipolat.droidbank.ui.theme.White

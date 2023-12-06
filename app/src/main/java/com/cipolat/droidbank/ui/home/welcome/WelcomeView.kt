@@ -21,7 +21,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
-import com.cipolat.droidbank.data.home.model.User
+import com.cipolat.droidbank.data.home.remote.model.User
 import com.cipolat.droidbank.ui.theme.Gray
 import com.cipolat.droidbank.ui.theme.White
 import com.cipolat.droidbank.ui.theme.poppins

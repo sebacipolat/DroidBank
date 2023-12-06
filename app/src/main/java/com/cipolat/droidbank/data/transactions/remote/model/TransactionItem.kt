@@ -1,4 +1,4 @@
-package com.cipolat.droidbank.data.home.model
+package com.cipolat.droidbank.data.transactions.remote.model
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass

@@ -1,6 +1,6 @@
-package com.cipolat.droidbank.data.home.service
+package com.cipolat.droidbank.data.home.remote.service
 
-import com.cipolat.droidbank.data.home.model.HomeResponse
+import com.cipolat.droidbank.data.home.remote.model.HomeResponse
 import retrofit2.Response
 import retrofit2.http.GET
 

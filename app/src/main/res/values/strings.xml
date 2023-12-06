@@ -11,4 +11,6 @@
     <string name="home_transactions_lbl">Transaction</string>
     <!--Cards -->
     <string name="cards_header_lbl">Cards</string>
+    <!--Transactions -->
+    <string name="transactions_menu_header_lbl">Transactions</string>
 </resources>
