@@ -23,7 +23,7 @@ class HomeViewModel(private val useCase: GetHomeUserUseCase) : ViewModel() {
             when (response.status) {
                 Resource.Status.SUCCESS -> {
                     state.isLoading.value = false
-                    state.body.value = response.data!!
+                    state.body.value = response.data
                 }
 
                 Resource.Status.ERROR -> {

@@ -6,6 +6,7 @@ import com.cipolat.droidbank.data.cards.local.entities.LocalUserCards
 import com.cipolat.droidbank.data.cards.local.entities.asEntity
 import com.cipolat.droidbank.data.cards.remote.model.RemoteCard
 import com.cipolat.droidbank.data.home.local.entity.BalanceEntity
+import com.cipolat.droidbank.data.home.local.entity.HomeResponseEntity
 import com.cipolat.droidbank.data.home.local.entity.UserEntity
 import com.cipolat.droidbank.data.home.local.entity.asEntityList
 import com.cipolat.droidbank.data.home.remote.model.HomeResponse
@@ -33,14 +34,26 @@ object DataStore {
 
     suspend fun saveHomeResponse(homeResponse: HomeResponse) {
         db.let {
+            it.userDataDao().cleanUserData()
             it.userDataDao().insertUser(
                 UserEntity(
                     name = homeResponse.user.name,
                     avatarUrl = homeResponse.user.avatarUrl
                 )
             )
-            it.userDataDao().insertBalance(BalanceEntity(mount = homeResponse.balance.mount))
+            it.userDataDao().insertBalance(
+                BalanceEntity(
+                    mount = homeResponse.balance.mount,
+                    lastUpdate = System.currentTimeMillis().toString()
+                )
+            )
             it.userDataDao().insertTransactions(homeResponse.transactions.asEntityList())
+        }
+    }
+
+    suspend fun getHome(): HomeResponseEntity {
+        db.let {
+            return it.userDataDao().getHomeResponse()
         }
     }
 

@@ -16,6 +16,7 @@ import com.cipolat.droidbank.R
 import com.cipolat.droidbank.data.database.DataStore
 import com.cipolat.droidbank.data.home.datasource.HomeLocalDataSource
 import com.cipolat.droidbank.data.home.datasource.HomeRemoteDataSource
+import com.cipolat.droidbank.data.home.model.HomeBody
 import com.cipolat.droidbank.data.home.remote.model.HomeResponse
 import com.cipolat.droidbank.data.home.remote.service.HomeService
 import com.cipolat.droidbank.data.home.repositories.HomeRepositoryImpl
@@ -59,14 +60,14 @@ fun HomeScreen(modifier: Modifier = Modifier, context: Context) {
                     viewModel.getUserHome()
                 }
             } else {
-                HomeBody(viewModel.state.body.value, context)
+                HomeContent(viewModel.state.body.value, context)
             }
         }
     }
 }
 
 @Composable
-fun HomeBody(body: HomeResponse?, context: Context) {
+fun HomeContent(body: HomeBody?, context: Context) {
     with(body) {
         this?.let { WelcomeView(it.user) }
         this?.let {
