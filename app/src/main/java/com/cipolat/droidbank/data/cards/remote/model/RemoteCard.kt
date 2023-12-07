@@ -1,6 +1,5 @@
 package com.cipolat.droidbank.data.cards.remote.model
 
-import com.cipolat.droidbank.data.cards.local.entities.asCard
 import com.cipolat.droidbank.data.cards.model.Card
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -14,6 +13,7 @@ data class RemoteCard(
     val type: String,
     @Json(name = "background_color") val backgroundColor: String
 )
+
 fun RemoteCard.asCard() = Card(
     number = number,
     name = name,
@@ -22,6 +22,7 @@ fun RemoteCard.asCard() = Card(
     cvv = cvv,
     type = type
 )
+
 fun List<RemoteCard>.toCardList(): List<Card> {
     val finalList = ArrayList<Card>()
     this.forEach {
