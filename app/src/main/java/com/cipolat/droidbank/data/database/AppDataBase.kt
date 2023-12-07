@@ -17,5 +17,4 @@ import com.cipolat.droidbank.data.home.local.entity.UserEntity
 abstract class AppDataBase : RoomDatabase() {
     abstract fun userCardsDao(): UsersCardsDao
     abstract fun userDataDao(): HomeResponseDao
-
 }

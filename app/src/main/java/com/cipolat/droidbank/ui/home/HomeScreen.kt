@@ -17,7 +17,6 @@ import com.cipolat.droidbank.data.database.DataStore
 import com.cipolat.droidbank.data.home.datasource.HomeLocalDataSource
 import com.cipolat.droidbank.data.home.datasource.HomeRemoteDataSource
 import com.cipolat.droidbank.data.home.model.HomeBody
-import com.cipolat.droidbank.data.home.remote.model.HomeResponse
 import com.cipolat.droidbank.data.home.remote.service.HomeService
 import com.cipolat.droidbank.data.home.repositories.HomeRepositoryImpl
 import com.cipolat.droidbank.data.network.client.HttpClient

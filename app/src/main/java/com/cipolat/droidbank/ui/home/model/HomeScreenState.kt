@@ -4,7 +4,6 @@ import androidx.annotation.Keep
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import com.cipolat.droidbank.data.home.model.HomeBody
-import com.cipolat.droidbank.data.home.remote.model.HomeResponse
 import com.cipolat.droidbank.data.network.Resource
 
 @Keep
