@@ -8,9 +8,13 @@ import androidx.lifecycle.viewModelScope
 import com.cipolat.droidbank.data.network.Resource
 import com.cipolat.droidbank.domain.home.usecase.GetHomeUserUseCase
 import com.cipolat.droidbank.ui.home.model.HomeScreenState
+import dagger.hilt.android.internal.lifecycle.HiltViewModelMap
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class HomeViewModel(private val useCase: GetHomeUserUseCase) : ViewModel() {
+@HiltViewModel
+class HomeViewModel @Inject constructor(private val useCase: GetHomeUserUseCase) : ViewModel() {
     var state by mutableStateOf(HomeScreenState())
         private set
 

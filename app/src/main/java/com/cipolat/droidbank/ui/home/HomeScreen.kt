@@ -11,6 +11,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.cipolat.droidbank.R
 import com.cipolat.droidbank.data.database.DataStore
@@ -32,14 +33,7 @@ import com.cipolat.droidbank.ui.widgets.menu.Menu
 
 @Composable
 fun HomeScreen(modifier: Modifier = Modifier, context: Context) {
-    val service = HttpClient.getClient().create(HomeService::class.java)
-    val useCase = GetHomeUserUseCase(
-        HomeRepositoryImpl(
-            HomeLocalDataSource(DataStore),
-            HomeRemoteDataSource(service)
-        )
-    )
-    val viewModel: HomeViewModel = viewModel(factory = HomeViewModelFactory(useCase))
+    val viewModel = hiltViewModel<HomeViewModel>()
     LaunchedEffect(Unit) {
         viewModel.getUserHome()
     }

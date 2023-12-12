@@ -11,8 +11,9 @@ import com.cipolat.droidbank.data.network.Resource.Status.ERROR
 import com.cipolat.droidbank.data.network.Resource.Status.LOADING
 import com.cipolat.droidbank.data.network.Resource.Status.SUCCESS
 import com.cipolat.droidbank.data.utils.DateUtils
+import javax.inject.Inject
 
-class HomeRepositoryImpl(
+class HomeRepositoryImpl @Inject constructor(
     private val homeLocalDataSource: HomeLocalDataSource,
     private val remoteDataSource: HomeRemoteDataSource
 ) : HomeRepository {

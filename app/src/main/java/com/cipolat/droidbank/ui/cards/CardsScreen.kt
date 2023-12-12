@@ -50,21 +50,21 @@ import kotlinx.coroutines.launch
 fun CardScreen(modifier: Modifier = Modifier) {
     val snackBarHostState = remember { SnackbarHostState() }
     val service = HttpClient.getClient().create(CardsService::class.java)
-    val useCase = GetCardsUseCase(
+  /*  val useCase = GetCardsUseCase(
         CardsRepositoryImpl(
             CardsLocalDataSource(DataStore),
             CardsRemoteDataSource(service)
         )
-    )
-    val viewModel: CardViewModel = viewModel(factory = CardViewModelFactory(useCase))
+    )*/
+  //  val viewModel: CardViewModel = viewModel(factory = CardViewModelFactory(useCase))
     LaunchedEffect(Unit) {
-        viewModel.getCards()
+   //     viewModel.getCards()
     }
     Scaffold(snackbarHost = {
         SnackbarHost(hostState = snackBarHostState)
     }) {
         Column(Modifier.padding(start = 20.dp, top = 20.dp, end = 20.dp)) {
-            if (viewModel.state.isLoading.value) {
+           /* if (viewModel.state.isLoading.value) {
                 ProgressView()
             } else {
                 if (viewModel.state.isError != null) {
@@ -76,7 +76,7 @@ fun CardScreen(modifier: Modifier = Modifier) {
                 } else {
                     cardBody(modifier, viewModel.state.body)
                 }
-            }
+            }*/
         }
     }
 }

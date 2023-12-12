@@ -1,24 +1,25 @@
-package com.cipolat.droidbank.data.network.client
+package com.cipolat.droidbank.data.di
 
+import com.cipolat.droidbank.BuildConfig
+import com.cipolat.droidbank.data.home.remote.service.HomeService
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
+import javax.inject.Singleton
 
-object HttpClient {
-    private lateinit var client: Retrofit
-
-    fun init(url: String) {
-        client = build(url)
-    }
-
-    fun getClient(): Retrofit {
-        return client
-    }
-
-    private fun build(url: String): Retrofit {
+@Module
+@InstallIn(SingletonComponent::class)
+object NetworkModule {
+    @Singleton
+    @Provides
+    fun provideRetrofit(): Retrofit {
         val okHttpClient = OkHttpClient.Builder()
             .connectTimeout(5, TimeUnit.MINUTES)
             .readTimeout(5, TimeUnit.MINUTES)
@@ -31,7 +32,14 @@ object HttpClient {
 
         return Retrofit.Builder().client(okHttpClient)
             .addConverterFactory(MoshiConverterFactory.create(moshi))
-            .baseUrl(url)
+            .baseUrl(BuildConfig.BASE_URL)
             .build()
     }
+
+    @Singleton
+    @Provides
+    fun provideHomeService(retrofit: Retrofit): HomeService {
+        return retrofit.create(HomeService::class.java)
+    }
+
 }

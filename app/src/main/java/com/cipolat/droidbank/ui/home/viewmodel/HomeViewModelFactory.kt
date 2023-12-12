@@ -3,8 +3,9 @@ package com.cipolat.droidbank.ui.home.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.cipolat.droidbank.domain.home.usecase.GetHomeUserUseCase
+import javax.inject.Inject
 
-class HomeViewModelFactory(private val useCase: GetHomeUserUseCase) :
+class HomeViewModelFactory @Inject constructor(private val useCase: GetHomeUserUseCase) :
     ViewModelProvider.Factory {
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {

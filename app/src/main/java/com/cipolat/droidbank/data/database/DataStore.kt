@@ -1,7 +1,5 @@
 package com.cipolat.droidbank.data.database
 
-import android.content.Context
-import androidx.room.Room
 import com.cipolat.droidbank.data.cards.local.entities.LocalUserCards
 import com.cipolat.droidbank.data.cards.local.entities.asEntity
 import com.cipolat.droidbank.data.cards.remote.model.RemoteCard
@@ -10,18 +8,11 @@ import com.cipolat.droidbank.data.home.local.entity.HomeResponseEntity
 import com.cipolat.droidbank.data.home.local.entity.UserEntity
 import com.cipolat.droidbank.data.home.local.entity.asEntityList
 import com.cipolat.droidbank.data.home.remote.model.HomeResponse
+import javax.inject.Inject
+import javax.inject.Singleton
 
-object DataStore {
-    private const val DATABASE_NAME = "DROID_BANK_DATABASE"
-
-    private lateinit var db: AppDataBase
-    fun init(context: Context) {
-        db = Room.databaseBuilder(
-            context,
-            AppDataBase::class.java,
-            DATABASE_NAME
-        ).build()
-    }
+@Singleton
+class DataStore @Inject constructor(private var db: AppDataBase) {
 
     suspend fun saveCards(cardList: List<RemoteCard>) {
         db.let {

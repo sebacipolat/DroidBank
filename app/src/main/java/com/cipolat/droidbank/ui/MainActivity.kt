@@ -15,7 +15,9 @@ import com.cipolat.droidbank.data.network.client.HttpClient
 import com.cipolat.droidbank.ui.bottomnav.BottomNav
 import com.cipolat.droidbank.ui.cards.CardScreen
 import com.cipolat.droidbank.ui.theme.DroidBankTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
