@@ -3,8 +3,9 @@ package com.cipolat.droidbank.data.cards.datasource
 import com.cipolat.droidbank.data.cards.local.entities.LocalUserCards
 import com.cipolat.droidbank.data.cards.remote.model.RemoteCard
 import com.cipolat.droidbank.data.database.DataStore
+import javax.inject.Inject
 
-class CardsLocalDataSource(private val dataStore: DataStore) {
+class CardsLocalDataSource @Inject constructor(private val dataStore: DataStore) {
     suspend fun saveCards(cardList: List<RemoteCard>) {
         return dataStore.saveCards(cardList)
     }

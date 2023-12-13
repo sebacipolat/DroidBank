@@ -1,6 +1,7 @@
 package com.cipolat.droidbank.data.di
 
 import com.cipolat.droidbank.BuildConfig
+import com.cipolat.droidbank.data.cards.remote.service.CardsService
 import com.cipolat.droidbank.data.home.remote.service.HomeService
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -42,4 +43,9 @@ object NetworkModule {
         return retrofit.create(HomeService::class.java)
     }
 
+    @Singleton
+    @Provides
+    fun provideCardsService(retrofit: Retrofit): CardsService {
+        return retrofit.create(CardsService::class.java)
+    }
 }

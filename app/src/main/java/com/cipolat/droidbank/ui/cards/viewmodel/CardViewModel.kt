@@ -8,9 +8,11 @@ import androidx.lifecycle.viewModelScope
 import com.cipolat.droidbank.data.network.Resource
 import com.cipolat.droidbank.domain.cards.usecase.GetCardsUseCase
 import com.cipolat.droidbank.ui.cards.model.CardScreenState
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
-
-class CardViewModel(private val useCase: GetCardsUseCase) : ViewModel() {
+import javax.inject.Inject
+@HiltViewModel
+class CardViewModel @Inject constructor(private val useCase: GetCardsUseCase) : ViewModel() {
     var state by mutableStateOf(CardScreenState())
         private set
 

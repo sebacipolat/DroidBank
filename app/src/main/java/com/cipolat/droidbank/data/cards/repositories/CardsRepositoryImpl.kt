@@ -6,8 +6,9 @@ import com.cipolat.droidbank.data.cards.local.entities.toCardList
 import com.cipolat.droidbank.data.cards.model.Card
 import com.cipolat.droidbank.data.cards.remote.model.toCardList
 import com.cipolat.droidbank.data.network.Resource
+import javax.inject.Inject
 
-class CardsRepositoryImpl(
+class CardsRepositoryImpl @Inject constructor(
     private val localDataSource: CardsLocalDataSource,
     private val remoteDataSource: CardsRemoteDataSource
 ) : CardsRepository {

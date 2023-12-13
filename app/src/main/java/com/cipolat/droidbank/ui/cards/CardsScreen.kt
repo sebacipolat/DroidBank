@@ -26,19 +26,11 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.cipolat.droidbank.R
-import com.cipolat.droidbank.data.cards.datasource.CardsLocalDataSource
-import com.cipolat.droidbank.data.cards.datasource.CardsRemoteDataSource
 import com.cipolat.droidbank.data.cards.model.Card
-import com.cipolat.droidbank.data.cards.remote.service.CardsService
-import com.cipolat.droidbank.data.cards.repositories.CardsRepositoryImpl
-import com.cipolat.droidbank.data.database.DataStore
 import com.cipolat.droidbank.data.network.Resource
-import com.cipolat.droidbank.data.network.client.HttpClient
-import com.cipolat.droidbank.domain.cards.usecase.GetCardsUseCase
 import com.cipolat.droidbank.ui.cards.viewmodel.CardViewModel
-import com.cipolat.droidbank.ui.cards.viewmodel.CardViewModelFactory
 import com.cipolat.droidbank.ui.theme.poppins
 import com.cipolat.droidbank.ui.widgets.error.ErrorPlaceHolder
 import com.cipolat.droidbank.ui.widgets.loading.ProgressView
@@ -49,22 +41,15 @@ import kotlinx.coroutines.launch
 @Composable
 fun CardScreen(modifier: Modifier = Modifier) {
     val snackBarHostState = remember { SnackbarHostState() }
-    val service = HttpClient.getClient().create(CardsService::class.java)
-  /*  val useCase = GetCardsUseCase(
-        CardsRepositoryImpl(
-            CardsLocalDataSource(DataStore),
-            CardsRemoteDataSource(service)
-        )
-    )*/
-  //  val viewModel: CardViewModel = viewModel(factory = CardViewModelFactory(useCase))
+    val viewModel = hiltViewModel<CardViewModel>()
     LaunchedEffect(Unit) {
-   //     viewModel.getCards()
+        viewModel.getCards()
     }
     Scaffold(snackbarHost = {
         SnackbarHost(hostState = snackBarHostState)
     }) {
         Column(Modifier.padding(start = 20.dp, top = 20.dp, end = 20.dp)) {
-           /* if (viewModel.state.isLoading.value) {
+            if (viewModel.state.isLoading.value) {
                 ProgressView()
             } else {
                 if (viewModel.state.isError != null) {
@@ -76,7 +61,7 @@ fun CardScreen(modifier: Modifier = Modifier) {
                 } else {
                     cardBody(modifier, viewModel.state.body)
                 }
-            }*/
+            }
         }
     }
 }
