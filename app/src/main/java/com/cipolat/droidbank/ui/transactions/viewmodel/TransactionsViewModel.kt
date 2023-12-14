@@ -8,9 +8,13 @@ import androidx.lifecycle.viewModelScope
 import com.cipolat.droidbank.data.network.Resource
 import com.cipolat.droidbank.domain.transactions.usecase.GetTransactionsUseCase
 import com.cipolat.droidbank.ui.transactions.model.TransactionsScreenState
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class TransactionsViewModel(private val useCase: GetTransactionsUseCase) : ViewModel() {
+@HiltViewModel
+class TransactionsViewModel @Inject constructor(private val useCase: GetTransactionsUseCase) :
+    ViewModel() {
     var state by mutableStateOf(TransactionsScreenState())
         private set
 

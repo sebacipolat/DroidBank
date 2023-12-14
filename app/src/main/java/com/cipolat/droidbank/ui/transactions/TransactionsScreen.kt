@@ -8,25 +8,15 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
-import com.cipolat.droidbank.data.network.client.HttpClient
-import com.cipolat.droidbank.data.transactions.datasource.TransactionRemoteDataSource
-import com.cipolat.droidbank.data.transactions.remote.services.TransactionService
-import com.cipolat.droidbank.data.transactions.repositories.TransactionRepositoryImpl
-import com.cipolat.droidbank.domain.transactions.usecase.GetTransactionsUseCase
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.cipolat.droidbank.ui.transactions.viewmodel.TransactionsViewModel
-import com.cipolat.droidbank.ui.transactions.viewmodel.TransactionsViewModelFactory
 import com.cipolat.droidbank.ui.widgets.error.ErrorPlaceHolder
 import com.cipolat.droidbank.ui.widgets.loading.ProgressView
 
 @Preview
 @Composable
 fun TransactionsScreen(modifier: Modifier = Modifier) {
-    val service = HttpClient.getClient().create(TransactionService::class.java)
-    val useCase =
-        GetTransactionsUseCase(TransactionRepositoryImpl(TransactionRemoteDataSource(service)))
-    val viewModel: TransactionsViewModel =
-        viewModel(factory = TransactionsViewModelFactory(useCase))
+    val viewModel = hiltViewModel<TransactionsViewModel>()
     LaunchedEffect(Unit) {
         viewModel.getUserTransactions()
     }
