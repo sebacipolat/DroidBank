@@ -1,4 +1,4 @@
-package com.cipolat.droidbank.ui.home.balance
+package com.cipolat.droidbank.ui.home.components.balance
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column

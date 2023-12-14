@@ -13,7 +13,7 @@ data class HomeResponseEntity(
     @Relation(parentColumn = "id", entityColumn = "id")
     val balance: BalanceEntity,
     @Relation(parentColumn = "id", entityColumn = "id")
-    val transactions: List<TransactionEntity>
+    var transactions: List<TransactionEntity>
 )
 
 fun HomeResponseEntity.asHomeBody(): HomeBody {

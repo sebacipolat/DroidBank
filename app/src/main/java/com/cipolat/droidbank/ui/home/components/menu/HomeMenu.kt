@@ -1,4 +1,4 @@
-package com.cipolat.droidbank.ui.home
+package com.cipolat.droidbank.ui.home.components.menu
 
 import com.cipolat.droidbank.R
 import com.cipolat.droidbank.ui.widgets.menu.MenuItem

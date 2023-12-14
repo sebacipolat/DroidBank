@@ -21,6 +21,9 @@ interface HomeResponseDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertTransactions(transactions: List<TransactionEntity>)
 
+    @Query("SELECT * FROM transaction_table")
+    suspend fun getTransactions(): List<TransactionEntity>
+
     @Query("DELETE FROM user_table")
     suspend fun cleanUserData()
 

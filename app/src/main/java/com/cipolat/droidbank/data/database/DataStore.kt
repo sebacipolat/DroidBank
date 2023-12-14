@@ -44,7 +44,12 @@ class DataStore @Inject constructor(private var db: AppDataBase) {
 
     suspend fun getHome(): HomeResponseEntity {
         db.let {
-            return it.userDataDao().getHomeResponse()
+            val response = it.userDataDao().getHomeResponse()
+            val transaction = it.userDataDao().getTransactions()
+            if(transaction.isNotEmpty()){
+                response.transactions=transaction.subList(0,4)
+            }
+            return response
         }
     }
 

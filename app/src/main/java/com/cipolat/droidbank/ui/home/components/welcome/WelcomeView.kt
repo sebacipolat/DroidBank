@@ -1,4 +1,4 @@
-package com.cipolat.droidbank.ui.home.welcome
+package com.cipolat.droidbank.ui.home.components.welcome
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
