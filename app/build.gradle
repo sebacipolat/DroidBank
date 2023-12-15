@@ -16,7 +16,6 @@ android {
         targetSdk 34
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary true
@@ -31,8 +30,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
+        sourceCompatibility JavaVersion.VERSION_18
+        targetCompatibility JavaVersion.VERSION_18
     }
 
     buildFeatures {
@@ -100,10 +99,19 @@ dependencies {
     testImplementation "androidx.room:room-testing:$room_version"
     testImplementation 'com.google.dagger:hilt-android-testing:2.48'
     kaptTest 'com.google.dagger:hilt-compiler:2.48'
-    androidTestImplementation "androidx.arch.core:core-testing:2.2.0"
-    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation "com.google.truth:truth:1.0.1"
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    testImplementation "org.robolectric:robolectric:4.11.1"
+
+
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    androidTestImplementation "com.google.truth:truth:1.0.1"
+    androidTestImplementation "android.arch.core:core-testing:1.1.1"
+    androidTestImplementation "androidx.test:runner:1.5.2"
+    testImplementation 'androidx.test:core:1.5.0'
+    androidTestImplementation "androidx.test:core-ktx:1.5.0"
+    androidTestImplementation "androidx.arch.core:core-testing:2.2.0"
+
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_ui_version"
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_ui_version"
     debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_ui_version"

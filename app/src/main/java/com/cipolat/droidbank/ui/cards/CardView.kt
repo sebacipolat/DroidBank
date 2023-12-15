@@ -159,15 +159,15 @@ fun CardView(modifier: Modifier = Modifier, card: Card) {
             )
             Image(
                 contentScale = ContentScale.Crop,
-                painter = painterResource(id = getCardIcon(card)),
+                painter = painterResource(id = getCardIcon(card.type)),
                 contentDescription = "Card"
             )
         }
     }
 }
 
-fun getCardIcon(card: Card): Int {
-    return when (card.type.toUpperCase()) {
+fun getCardIcon(type: String): Int {
+    return when (type.toUpperCase()) {
         CardBrand.VISA -> {
             R.drawable.visa_icon
         }

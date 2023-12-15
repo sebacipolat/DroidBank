@@ -1,60 +1,57 @@
 package com.cipolat.droidbank.data.cards.local.dao
 
+import android.content.Context
+import androidx.room.Room
+import androidx.test.core.app.ApplicationProvider
+import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.cipolat.droidbank.data.cards.local.entities.LocalUserCards
+import com.cipolat.droidbank.data.database.AppDataBase
+import junit.framework.TestCase.assertTrue
 import kotlinx.coroutines.runBlocking
 import org.junit.After
 import org.junit.Before
-import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
-import androidx.test.ext.junit.runners.AndroidJUnit4
-
+import org.robolectric.annotation.Config
+import java.io.IOException
 
 @RunWith(AndroidJUnit4::class)
 class UsersCardsDaoTest {
 
-    @get:Rule
-    var instantTaskExecutorRule = InstantTaskExecutorRule()
+    private lateinit var cardsDao: UsersCardsDao
+    private lateinit var db: AppDataBase
 
-    @get:Rule
-    var roomTestRule = RoomDatabaseTestRule.inMemoryDatabaseBuilder(AppDatabase::class.java)
-        .allowMainThreadQueries()
-        .build()
-
-    private lateinit var usersCardsDao: UsersCardsDao
 
     @Before
-    fun setUp() {
-        val database = roomTestRule.databaseBuilder.build()
-        usersCardsDao = database.usersCardsDao()
+    fun createDb() {
+        val context = ApplicationProvider.getApplicationContext<Context>()
+        db = Room.inMemoryDatabaseBuilder(
+            context, AppDataBase::class.java
+        ).build()
+        cardsDao = db.userCardsDao()
     }
 
     @After
-    fun tearDown() {
-        roomTestRule.closeDatabase()
+    @Throws(IOException::class)
+    fun closeDb() {
+        db.close()
     }
 
     @Test
-    fun saveCardAndGetCards() = runBlocking {
-        val card = LocalUserCards(/* crear objeto LocalUserCards con datos de prueba */)
-
-        // Guardar la tarjeta
-        usersCardsDao.saveCard(card)
-
-        // Obtener todas las tarjetas
-        val cards = usersCardsDao.getCards()
-
-        // Asegurarse de que la tarjeta guardada está en la lista
-        assertTrue(cards.contains(card))
+    @Config(manifest = Config.NONE)
+    fun `when savecard and getcards you should get the added card`() = runBlocking {
+        val userCard = LocalUserCards(
+            number = "1111 1111 1111 1111",
+            name = "patrick Stewart",
+            expirationDate = "10/10/2035",
+            lastUpdate = "44545477",
+            cvv = "XXXX",
+            type = "VISA",
+            backgroundColor = ""
+        )
+        cardsDao.saveCard(userCard)
+        println(cardsDao.getCards().toString())
+        assertTrue(cardsDao.getCards().size == 1)
     }
 
-    @Test
-    fun getCardSince() = runBlocking {
-        // Lógica similar a saveCardAndGetCards, pero para getCardSince
-    }
-
-    @Test
-    fun cleanCards() = runBlocking {
-        // Lógica similar a saveCardAndGetCards, pero para cleanCards
-    }
 }

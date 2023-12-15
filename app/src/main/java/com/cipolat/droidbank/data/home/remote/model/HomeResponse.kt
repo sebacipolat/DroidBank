@@ -8,7 +8,8 @@ import com.squareup.moshi.JsonClass
 data class HomeResponse(
     val user: User,
     val balance: Balance,
-    val transactions: List<TransactionItem>
+    val transactions: List<TransactionItem>,
+    val wallet: List<WalletItem>,
 )
 
 fun HomeResponse.asHomeBody(): HomeBody {
