@@ -12,6 +12,7 @@ val Blue = Color(0xFF27273A)
 val BlueDark = Color(0xFF0066FF)
 
 val GrayLight = Color(0x80FFFFFF)
+val GraySky = Color(0x6Ff5f5f5)
 
 // Light
 val White = Color(0xFFffffff)

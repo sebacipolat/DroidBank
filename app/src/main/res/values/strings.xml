@@ -7,6 +7,7 @@
     <string name="server_error_title">Oops!</string>
     <string name="server_error_message">Something went wrong.</string>
     <!--Home -->
+    <string name="home_balance">Your Balance</string>
     <string name="home_menu_not_yet">Coming soon.</string>
     <string name="home_transactions_lbl">Last Activity</string>
     <!--Cards -->

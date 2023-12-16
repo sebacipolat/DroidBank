@@ -49,7 +49,7 @@ fun TransactionsScreen(modifier: Modifier = Modifier) {
                     style = TextStyle(
                         fontSize = 18.sp,
                         color = MaterialTheme.colors.onPrimary,
-                        fontWeight = FontWeight.Medium,
+                        fontWeight = FontWeight.SemiBold,
                         fontFamily = poppins
                     ),
                     textAlign = TextAlign.Start

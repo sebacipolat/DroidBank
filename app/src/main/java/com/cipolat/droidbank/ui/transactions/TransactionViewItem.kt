@@ -24,8 +24,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.cipolat.droidbank.data.transactions.remote.model.TransactionItem
-import com.cipolat.droidbank.ui.theme.Gray
+import com.cipolat.droidbank.ui.theme.BlueDark
 import com.cipolat.droidbank.ui.theme.GrayLight
+import com.cipolat.droidbank.ui.theme.GraySky
 import com.cipolat.droidbank.ui.theme.poppins
 
 @Composable
@@ -41,7 +42,7 @@ fun TransactionViewItem(
             modifier = Modifier
                 .size(42.dp)
                 .clip(CircleShape)
-                .background(Gray),
+                .background(MaterialTheme.colors.onSurface),
             contentAlignment = Alignment.Center
         ) {
             AsyncImage(
@@ -70,21 +71,26 @@ fun TransactionViewItem(
             Text(
                 text = item.type,
                 style = TextStyle(
-                    fontSize = 14.sp,
-                    color = GrayLight,
-                    fontWeight = FontWeight.Medium,
+                    fontSize = 12.sp,
+                    color = MaterialTheme.colors.onPrimary,
+                    fontWeight = FontWeight.SemiBold,
                     fontFamily = poppins
                 ),
                 textAlign = TextAlign.Start
             )
         }
         Divider(modifier = Modifier.weight(1f), color = Color.Transparent)
+        val textColor = if (!item.value.contains("-")) {
+            BlueDark
+        } else {
+            MaterialTheme.colors.onPrimary
+        }
         Text(
             text = item.value,
             style = TextStyle(
-                fontSize = 16.sp,
-                color = MaterialTheme.colors.onPrimary,
-                fontWeight = FontWeight.Medium,
+                fontSize = 14.sp,
+                color =  textColor,
+                fontWeight = FontWeight.SemiBold,
                 fontFamily = poppins
             ),
             textAlign = TextAlign.End
