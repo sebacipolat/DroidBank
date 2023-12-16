@@ -72,7 +72,7 @@ fun TransactionViewItem(
                 text = item.type,
                 style = TextStyle(
                     fontSize = 12.sp,
-                    color = MaterialTheme.colors.onPrimary,
+                    color = MaterialTheme.colors.primary,
                     fontWeight = FontWeight.SemiBold,
                     fontFamily = poppins
                 ),
