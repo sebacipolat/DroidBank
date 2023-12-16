@@ -43,7 +43,8 @@ fun TransactionsScreen(modifier: Modifier = Modifier) {
             } else {
                 Text(
                     modifier = Modifier
-                        .fillMaxWidth(),
+                        .fillMaxWidth()
+                        .padding(top = 20.dp),
                     text = stringResource(id = R.string.transactions_menu_header_lbl),
                     style = TextStyle(
                         fontSize = 18.sp,
