@@ -29,9 +29,9 @@ object HomeMenu {
         )
         list.add(
             MenuItem(
-                iconLight = R.drawable.top_up_ligth,
-                iconDark = R.drawable.top_up_dark,
-                "Topup"
+                iconLight = R.drawable.qr_ligth,
+                iconDark = R.drawable.qr_dark,
+                "QR Pay"
             )
         )
         return list

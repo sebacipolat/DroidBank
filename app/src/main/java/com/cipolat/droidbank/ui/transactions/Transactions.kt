@@ -27,20 +27,6 @@ fun Transactions(
         modifier = modifier,
         verticalArrangement = Arrangement.spacedBy(10.dp)
     ) {
-        item {
-            Text(
-                modifier = Modifier
-                    .fillMaxWidth(),
-                text = stringResource(id = R.string.home_transactions_lbl),
-                style = TextStyle(
-                    fontSize = 18.sp,
-                    color = MaterialTheme.colors.onPrimary,
-                    fontWeight = FontWeight.Medium,
-                    fontFamily = poppins
-                ),
-                textAlign = TextAlign.Start
-            )
-        }
         items(transactions) {
             TransactionViewItem(Modifier.fillMaxWidth(), it)
         }

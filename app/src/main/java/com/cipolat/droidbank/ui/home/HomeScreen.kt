@@ -16,7 +16,6 @@ import com.cipolat.droidbank.R
 import com.cipolat.droidbank.data.home.model.HomeBody
 import com.cipolat.droidbank.ui.home.components.balance.BalanceView
 import com.cipolat.droidbank.ui.home.components.menu.HomeMenu
-import com.cipolat.droidbank.ui.home.components.wallet.CardWallet
 import com.cipolat.droidbank.ui.home.components.welcome.WelcomeView
 import com.cipolat.droidbank.ui.home.viewmodel.HomeViewModel
 import com.cipolat.droidbank.ui.transactions.Transactions
