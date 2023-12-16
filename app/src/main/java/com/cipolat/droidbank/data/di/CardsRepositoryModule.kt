@@ -2,8 +2,6 @@ package com.cipolat.droidbank.data.di
 
 import com.cipolat.droidbank.data.cards.repositories.CardsRepository
 import com.cipolat.droidbank.data.cards.repositories.CardsRepositoryImpl
-import com.cipolat.droidbank.data.home.repositories.HomeRepository
-import com.cipolat.droidbank.data.home.repositories.HomeRepositoryImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

@@ -7,5 +7,5 @@ import com.squareup.moshi.JsonClass
 data class WalletItem(
     val number: String,
     val type: String,
-    @Json(name ="background_color") val backgroundColor: String
+    @Json(name = "background_color") val backgroundColor: String
 )

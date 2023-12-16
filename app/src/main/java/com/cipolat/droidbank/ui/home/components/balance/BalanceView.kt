@@ -19,7 +19,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.cipolat.droidbank.R
 import com.cipolat.droidbank.data.home.remote.model.Balance
-import com.cipolat.droidbank.ui.theme.Blue
 import com.cipolat.droidbank.ui.theme.GrayLight
 import com.cipolat.droidbank.ui.theme.White
 import com.cipolat.droidbank.ui.theme.poppins
@@ -50,7 +49,8 @@ fun BalanceView(modifier: Modifier = Modifier, balance: Balance) {
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(
-                    top = 2.dp, bottom = 25.dp
+                    top = 2.dp,
+                    bottom = 25.dp
                 ),
             text = balance.mount,
             style = TextStyle(

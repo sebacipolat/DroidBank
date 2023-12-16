@@ -46,8 +46,8 @@ class DataStore @Inject constructor(private var db: AppDataBase) {
         db.let {
             val response = it.userDataDao().getHomeResponse()
             val transaction = it.userDataDao().getTransactions()
-            if(transaction.isNotEmpty()){
-                response.transactions=transaction.subList(0,4)
+            if (transaction.isNotEmpty()) {
+                response.transactions = transaction.subList(0, 4)
             }
             return response
         }

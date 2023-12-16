@@ -25,8 +25,6 @@ import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.cipolat.droidbank.data.transactions.remote.model.TransactionItem
 import com.cipolat.droidbank.ui.theme.BlueDark
-import com.cipolat.droidbank.ui.theme.GrayLight
-import com.cipolat.droidbank.ui.theme.GraySky
 import com.cipolat.droidbank.ui.theme.poppins
 
 @Composable
@@ -89,7 +87,7 @@ fun TransactionViewItem(
             text = item.value,
             style = TextStyle(
                 fontSize = 14.sp,
-                color =  textColor,
+                color = textColor,
                 fontWeight = FontWeight.SemiBold,
                 fontFamily = poppins
             ),

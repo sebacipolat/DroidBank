@@ -21,12 +21,12 @@ class UsersCardsDaoTest {
     private lateinit var cardsDao: UsersCardsDao
     private lateinit var db: AppDataBase
 
-
     @Before
     fun createDb() {
         val context = ApplicationProvider.getApplicationContext<Context>()
         db = Room.inMemoryDatabaseBuilder(
-            context, AppDataBase::class.java
+            context,
+            AppDataBase::class.java
         ).build()
         cardsDao = db.userCardsDao()
     }
@@ -53,5 +53,4 @@ class UsersCardsDaoTest {
         println(cardsDao.getCards().toString())
         assertTrue(cardsDao.getCards().size == 1)
     }
-
 }

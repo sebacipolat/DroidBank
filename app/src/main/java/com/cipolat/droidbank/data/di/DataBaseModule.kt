@@ -24,10 +24,10 @@ object DataBaseModule {
             "DROID_BANK_DATABASE"
         ).build()
     }
+
     @Singleton
     @Provides
-    fun provideDataStore(bd:AppDataBase): DataStore {
+    fun provideDataStore(bd: AppDataBase): DataStore {
         return DataStore(bd)
     }
-
 }
