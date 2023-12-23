@@ -14,7 +14,7 @@ Based on https://developer.android.com/topic/architecture?hl=es-419
 ## Demo
 Go to the [Releases](https://github.com/skydoves/Pokedex/releases) to download the latest APK.
 
-<img src="/previews/preview.gif" align="right" width="320"/>
+<img src="/images/demo.gif" align="right" width="320"/>
 
 ## Tech stack & Open-source libraries
 - Minimum SDK level 24
