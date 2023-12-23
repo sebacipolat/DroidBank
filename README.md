@@ -14,7 +14,6 @@ Based on https://developer.android.com/topic/architecture?hl=es-419
 ## Demo
 Go to the [Releases](https://github.com/skydoves/Pokedex/releases) to download the latest APK.
 
-<img src="/images/demo.gif" align="right" width="320"/>
 
 ## Stack
 - Minimum SDK level 24
@@ -33,9 +32,10 @@ Go to the [Releases](https://github.com/skydoves/Pokedex/releases) to download t
 
 
 ## Architecture
-**Pokedex** is based on the MVVM architecture and the Repository pattern, which follows the [Google's official architecture guidance](https://developer.android.com/topic/architecture).
+**DroidBank** is based on the MVVM architecture and the Repository pattern, which follows the [Google's official architecture guidance](https://developer.android.com/topic/architecture).
 
-![architecture](figure/figure0.png)
+<img src="/images/arquitecture_layer.jpg" align="center" width="850"/>
+
 
 The overall architecture of **Pokedex** is composed of two layers; the UI layer and the data layer. Each layer has dedicated components and they have each different responsibilities, as defined below:
 
