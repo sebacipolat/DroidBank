@@ -6,6 +6,9 @@
 <p align="center">  
 A banking app demonstrates modern Android development using Hilt, Coroutines, Jetpack Compose, Room, ViewModel, MVVM architecture.dark and ligth theme, offline support.
 </p>
+<p align="center">    
+Based on https://developer.android.com/topic/architecture?hl=es-419
+</p>
 </br>
 
 ## Demo
