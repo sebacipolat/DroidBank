@@ -14,6 +14,7 @@ Based on https://developer.android.com/topic/architecture?hl=es-419
 ## Demo
 Go to the [Releases](https://github.com/skydoves/Pokedex/releases) to download the latest APK.
 
+![image](https://github.com/sebacipolat/DroidBank/images/demo.gif)
 
 ## Stack
 - Minimum SDK level 24
@@ -62,7 +63,11 @@ DroidBank is an offline app so the app could display information without interne
 There are a validation by time stamp and eexpiration time where depending the expiration value the app will get data from db or api rest.
 
 ie: cards feature
+
 ![image](https://github.com/sebacipolat/DroidBank/assets/1523404/b4c3b0f7-8f03-459c-b868-63b69d5f55c0)
+
+Into the repository there are the logic to give the domain layer the data from the local db o api rest 
+
 
 
 # License
