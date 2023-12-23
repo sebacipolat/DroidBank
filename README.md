@@ -16,7 +16,7 @@ Go to the [Releases](https://github.com/skydoves/Pokedex/releases) to download t
 
 <img src="/images/demo.gif" align="right" width="320"/>
 
-## Tech stack & Open-source libraries
+## Stack
 - Minimum SDK level 24
 - Kotlin
 - MVVM
