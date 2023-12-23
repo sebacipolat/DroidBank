@@ -32,15 +32,13 @@ Go to the [Releases](https://github.com/skydoves/Pokedex/releases) to download t
 
 
 ## Architecture
-**DroidBank** is based on the MVVM architecture and the Repository pattern, which follows the [Google's official architecture guidance](https://developer.android.com/topic/architecture).
+**DroidBank** has three main features home, cards, transactions.
+Each of them is based on the MVVM architecture and the Repository pattern, which follows the [Google's official architecture guidance](https://developer.android.com/topic/architecture).
 
-<img src="/images/arquitecture_layer.jpg" align="center" width="850"/>
+<img src="/images/arquitecture_layer.jpg" align="center" width="550"/>
 
-
-The overall architecture of **Pokedex** is composed of two layers; the UI layer and the data layer. Each layer has dedicated components and they have each different responsibilities, as defined below:
-
-**Pokedex** was built with [Guide to app architecture](https://developer.android.com/topic/architecture), so it would be a great sample to show how the architecture works in real-world projects.
-
+The overall architecture is composed of three layers; the UI layer, domain layer and data layer.
+Each layer has dedicated components and they have each different responsibilities, as defined below:
 
 ### Architecture Overview
 
