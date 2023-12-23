@@ -60,6 +60,11 @@ The data Layer consists of repositories, who query data from the local database 
 DroidBank is an offline app so the app could display information without internet access depeding the stored data.
 
 There are a validation by time stamp and eexpiration time where depending the expiration value the app will get data from db or api rest.
+
+ie: cards feature
+![image](https://github.com/sebacipolat/DroidBank/assets/1523404/b4c3b0f7-8f03-459c-b868-63b69d5f55c0)
+
+
 # License
 ```xml
 Designed and developed by 2023 Sebastian Cipolat
