@@ -1,5 +1,3 @@
-<h1 align="center">DroidBank</h1>
-
 <p align="center">
 <img src="/images/banner.png"/>
 </p>
