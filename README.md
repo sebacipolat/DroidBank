@@ -9,8 +9,11 @@ Based on https://developer.android.com/topic/architecture?hl=es-419
 </p>
 </br>
 
-## Demo
-Go to the [Releases](https://github.com/skydoves/Pokedex/releases) to download the latest APK.
+## Features
+* Home, Cards, Transactions.
+* Light and Dark theme
+* Offline support
+
 
 <img src="/images/demo.gif" align="right" width="320"/>
 
