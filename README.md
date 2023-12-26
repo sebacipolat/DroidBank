@@ -68,6 +68,8 @@ ie: cards feature
 ![image](https://github.com/sebacipolat/DroidBank/assets/1523404/b4c3b0f7-8f03-459c-b868-63b69d5f55c0)
 
 Into the repository there are the logic to give the domain layer the data from the local db o api rest 
+
+The first purpose is to avoid heavy use of the  backend this will be called only when the data is expired.
 ![control de cache_droid_bank](https://github.com/sebacipolat/DroidBank/assets/1523404/1d2d61e7-61e0-41cc-a403-10b3fe8dd0bd)
 
 ## Testing
