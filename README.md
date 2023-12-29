@@ -77,11 +77,14 @@ Card table content:
 ![image](https://github.com/sebacipolat/DroidBank/assets/1523404/ce3770e6-027b-4df7-a78e-0055710e1b9d)
 
 We use last_update (timestamp on miliseconds) value to check the expiration.
+
 The search is based on this query timeLimit is the expiration time on minutes
 
 "SELECT * FROM user_cards WHERE (:timeStamp - last_update) / 60000 <= :timeLimit"
 
 ![control de cache_droid_bank](https://github.com/sebacipolat/DroidBank/assets/1523404/1d2d61e7-61e0-41cc-a403-10b3fe8dd0bd)
+
+
 
 ## Testing
 Unit test using jUnit + mockK
