@@ -13,7 +13,7 @@ Based on https://developer.android.com/topic/architecture?hl=es-419
 * Home, Cards, Transactions.
 * Light and Dark theme
 * Offline support
-
+* Error handling
 
 <img src="/images/demo.gif" align="right" width="320"/>
 
@@ -69,7 +69,7 @@ ie: cards feature
 
 Into the repository there are the logic to give the domain layer the data from the local db o api rest 
 
-## Cacee Control
+## Cache Control
 
 The first purpose is to avoid heavy use of the  backend this will be called only when the data is expired.
 
