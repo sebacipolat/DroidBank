@@ -89,6 +89,8 @@ The search is based on this query timeLimit is the expiration time on minutes
 ## Testing
 Unit test using jUnit + mockK
 
+## Linter
+* Ktline https://pinterest.github.io/ktlint/latest/
 
 # License
 ```xml
