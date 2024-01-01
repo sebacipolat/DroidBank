@@ -1,5 +1,3 @@
-<h1 align="center">DroidBank</h1>
-
 <p align="center">
 <img src="/images/banner.png"/>
 </p>
@@ -11,8 +9,11 @@ Based on https://developer.android.com/topic/architecture?hl=es-419
 </p>
 </br>
 
-## Demo
-Go to the [Releases](https://github.com/skydoves/Pokedex/releases) to download the latest APK.
+## Features
+* Home, Cards, Transactions.
+* Light and Dark theme
+* Offline support
+* Error handling
 
 <img src="/images/demo.gif" align="right" width="320"/>
 
@@ -33,18 +34,15 @@ Go to the [Releases](https://github.com/skydoves/Pokedex/releases) to download t
 
 
 ## Architecture
-**Pokedex** is based on the MVVM architecture and the Repository pattern, which follows the [Google's official architecture guidance](https://developer.android.com/topic/architecture).
+**DroidBank** has three main features home, cards, transactions.
+Each of them is based on the MVVM architecture and the Repository pattern, which follows the [Google's official architecture guidance](https://developer.android.com/topic/architecture).
 
-![architecture](figure/figure0.png)
+<img src="/images/arquitecture_layer.jpg" align="center" width="550"/>
 
-The overall architecture of **Pokedex** is composed of two layers; the UI layer and the data layer. Each layer has dedicated components and they have each different responsibilities, as defined below:
-
-**Pokedex** was built with [Guide to app architecture](https://developer.android.com/topic/architecture), so it would be a great sample to show how the architecture works in real-world projects.
-
+The overall architecture is composed of three layers; the UI layer, domain layer and data layer.
+Each layer has dedicated components and they have each different responsibilities, as defined below:
 
 ### Architecture Overview
-
-![architecture](figure/figure1.png)
 
 - Each layer follows [unidirectional event/data flow](https://developer.android.com/topic/architecture/ui-layer#udf); the UI layer emits user events to the data layer, and the data layer exposes data as a stream to other layers.
 - The data layer is designed to work independently from other layers and must be pure, which means it doesn't have any dependencies on the other layers.
@@ -53,52 +51,50 @@ With this loosely coupled architecture, you can increase the reusability of comp
 
 ### UI Layer
 
-![architecture](figure/figure2.png)
+The UI layer is based on Jetpack Compoase consists the screens interacract with [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel) that holds app states and restores data when configuration changes.
 
-The UI layer consists of UI elements to configure screens that could interact with users and [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel) that holds app states and restores data when configuration changes.
-- UI elements observe the data flow via [DataBinding](https://developer.android.com/topic/libraries/data-binding), which is the most essential part of the MVVM architecture. 
-- With [Bindables](https://github.com/skydoves/bindables), which is an Android DataBinding kit for notifying data changes, you can implement two-way binding, and data observation in XML very clean.
+### Domain Layer
+The Viewmodel from ui layer interact with the uses cases where the business logic is present it take data from the data layer.
 
 ### Data Layer
 
-![architecture](figure/figure3.png)
+The data Layer consists of repositories, who query data from the local database or requesting remote data from the network depends the cache state.
+DroidBank is an offline app so the app could display information without internet access depeding the stored data.
 
-The data Layer consists of repositories, which include business logic, such as querying data from the local database and requesting remote data from the network. It is implemented as an offline-first source of business logic and follows the [single source of truth](https://en.wikipedia.org/wiki/Single_source_of_truth) principle.<br>
+There are a validation by time stamp and eexpiration time where depending the expiration value the app will get data from db or api rest.
 
-**Pokedex** is an offline-first app is an app that is able to perform all, or a critical subset of its core functionality without access to the internet. 
-So users don't need to be up-to-date on the network resources every time and it will decrease users' data consumption. For further information, you can check out [Build an offline-first app](https://developer.android.com/topic/architecture/data-layer/offline-first).
+ie: cards feature
 
-## Modularization
+![image](https://github.com/sebacipolat/DroidBank/assets/1523404/b4c3b0f7-8f03-459c-b868-63b69d5f55c0)
 
-![architecture](figure/figure4.png)
+Into the repository there are the logic to give the domain layer the data from the local db o api rest 
 
-**Pokedex** adopted modularization strategies below:
+## Cache Control
 
-- **Reusability**: Modulizing reusable codes properly enable opportunities for code sharing and limits code accessibility in other modules at the same time.
-- **Parallel Building**: Each module can be run in parallel and it reduces the build time.
-- **Strict visibility control**: Modules restrict to expose dedicated components and access to other layers, so it prevents they're being used outside the module
-- **Decentralized focusing**: Each developer team can assign their dedicated module and they can focus on their own modules.
+The first purpose is to avoid heavy use of the  backend this will be called only when the data is expired.
 
-For more information, check out the [Guide to Android app modularization](https://developer.android.com/topic/modularization).
+Card table content:
+![image](https://github.com/sebacipolat/DroidBank/assets/1523404/ce3770e6-027b-4df7-a78e-0055710e1b9d)
 
-## MAD Score
-![summary](https://user-images.githubusercontent.com/24237865/102366914-84f6b000-3ffc-11eb-8d49-b20694239782.png)
-![kotlin](https://user-images.githubusercontent.com/24237865/102366932-8a53fa80-3ffc-11eb-8131-fd6745a6f079.png)
+We use last_update (timestamp on miliseconds) value to check the expiration.
 
-## Open API
+The search is based on this query timeLimit is the expiration time on minutes
 
-<img src="https://user-images.githubusercontent.com/24237865/83422649-d1b1d980-a464-11ea-8c91-a24fdf89cd6b.png" align="right" width="21%"/>
+"SELECT * FROM user_cards WHERE (:timeStamp - last_update) / 60000 <= :timeLimit"
 
-Pokedex using the [PokeAPI](https://pokeapi.co/) for constructing RESTful API.<br>
-PokeAPI provides a RESTful API interface to highly detailed objects built from thousands of lines of data related to Pokémon.
+![control de cache_droid_bank](https://github.com/sebacipolat/DroidBank/assets/1523404/1d2d61e7-61e0-41cc-a403-10b3fe8dd0bd)
 
-## Find this repository useful? :heart:
-Support it by joining __[stargazers](https://github.com/skydoves/Pokedex/stargazers)__ for this repository. :star: <br>
-Also, __[follow me](https://github.com/skydoves)__ on GitHub for my next creations! 🤩
+
+
+## Testing
+Unit test using jUnit + mockK
+
+## Linter
+* Ktline https://pinterest.github.io/ktlint/latest/
 
 # License
 ```xml
-Designed and developed by 2022 skydoves (Jaewoong Eum)
+Designed and developed by 2023 Sebastian Cipolat
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
