@@ -26,7 +26,7 @@ class CardsRepositoryImpl @Inject constructor(
 
                 Resource.Status.ERROR -> {
                     val allCards = localDataSource.getCards()
-                    return if (allCards.isEmpty()) {
+                    return if (allCards.isNotEmpty()) {
                         Resource.error(
                             errorType = response.errorType,
                             data = allCards.toCardList()
