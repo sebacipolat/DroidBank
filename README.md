@@ -90,7 +90,7 @@ The search is based on this query timeLimit is the expiration time on minutes
 Unit test using jUnit + mockK
 
 ## Linter
-* Ktline https://pinterest.github.io/ktlint/latest/
+* Ktlint https://pinterest.github.io/ktlint/latest/
 
 ## Next Steps
 *Convert to a multu module app:   https://github.com/sebacipolat/DroidBank-modular/blob/main/README.md
