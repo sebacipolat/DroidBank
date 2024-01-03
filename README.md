@@ -92,6 +92,9 @@ Unit test using jUnit + mockK
 ## Linter
 * Ktline https://pinterest.github.io/ktlint/latest/
 
+## Next Steps
+*Convert to a multu module app:   https://github.com/sebacipolat/DroidBank-modular/blob/main/README.md
+
 # License
 ```xml
 Designed and developed by 2023 Sebastian Cipolat
